@@ -5,6 +5,8 @@ result = [0] * 10
 for score in scores:
     if(score == 0):
         break
+    elif (score < 10):
+        pass
     else:
         result[(score//10) -1] += 1
 
