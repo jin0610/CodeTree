@@ -1,22 +1,15 @@
 s, q = list(input().split())
+print(s,q)
+for _ in range(int(q)):
+    print(_)
+    i, a, b = list(input().split())
+    print(i, a, b)
+    strs = list(s)
 
-s, q = list(s), int(q)
-
-quests = [list(input().split()) for _ in range(q)]
-
-result = []
-
-for quest in quests:
-    i, a, b = quest
-    i = int(i)
-    s2 = s.copy()
-    
-    if(i == 1):
-        a, b = int(a), int(b)
-        s2[a-1], s2[b-1] = s2[b-1], s2[a-1]
-        
+    if(i == '1'):
+        strs[int(a)-1], strs[int(b)-1] = strs[int(b)-1], strs[int(a)-1]
     else:
-        for i in range(len(s)):
-            if(s[i] == a):
-                s2[i] = b
-    print("".join(s2))
+        for i in range(len(strs)):
+            if(strs[i] == a):
+                strs[i] = b
+    print(''.join(strs))
