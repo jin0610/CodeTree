@@ -5,7 +5,7 @@ cnt = 0
 
 for n in range(N):
     s = input()
-    length = len(s)
+    length = length + len(s)
     if(s[0] == 'a'):
         cnt += 1
 
