@@ -20,5 +20,5 @@ for i in range(1,len(A)):
         result += prev
         result += str(cnt)
 
-print(len(A))
+print(len(result))
 print(result)
