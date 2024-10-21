@@ -1,5 +1,5 @@
 strs = list(input().split())
 
-for s in strs:
-    if(len(s) % 2 == 1):
-        print(s)
+for i in range(len(strs)):
+    if(i+1) % 2 == 1:
+        print(strs[i])
