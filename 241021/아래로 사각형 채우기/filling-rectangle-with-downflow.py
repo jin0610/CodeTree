@@ -1,16 +1,12 @@
 n = int(input())
 
-maps = []
+result = [[0 for _ in range(n)] for _ in range(n)]
+
 num = 1
-
 for i in range(n):
-    nums=[]
     for j in range(n):
-        nums.append(num)
+        result[j][i] = num
         num = num + 1
-    maps.append(nums)
 
-
-maps = list(zip(*maps))
 for i in range(n):
-    print(*maps[i])
+    print(*result[i])
