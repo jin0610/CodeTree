@@ -2,6 +2,8 @@ strs = input()
 
 L = len(strs)
 
-for i in range(L):
-    print(strs[-i:] + strs[:-i])
 print(strs)
+
+for i in range(L):
+    strs = strs[-1] + strs[:-1]
+    print(strs)
