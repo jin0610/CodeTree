@@ -1,4 +1,4 @@
 strs = list(input().split())
 
-for s in range(len(strs)):
+for s in strs:
     print(s)
