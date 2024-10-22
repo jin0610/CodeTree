@@ -8,6 +8,6 @@ while A != B:
         print(-1)
         sys.exit(0)
     
-    B = B[-1]  + B[:-1]
+    A = A[-1]  + A[:-1]
     n = n + 1
 print(n)
