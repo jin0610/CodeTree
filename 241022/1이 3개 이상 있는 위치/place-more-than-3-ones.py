@@ -15,10 +15,11 @@ def count1(x, y):
     for dx, dy in zip(dxs, dys):
         nx, ny = x + dx, y + dy
         try:
-            if in_range(x, y) and maps[nx][ny] == 1:
+            if in_range(nx, ny) and maps[nx][ny] == 1:
                 cnt += 1
         except:
             pass
+        
     return cnt
 
 # 3개인 cnt 개수
