@@ -10,8 +10,13 @@ x, y = 0, 0
 for d in D:
     if d == 'L':
         i = i - 1
+        if i < 0:
+            i = 3
+            
     elif d == 'R':
         i = i + 1
+        if i >= 4 :
+            i = 0
     else:
         x, y = x + dx[i], y + dy[i]
 print(x, y)
