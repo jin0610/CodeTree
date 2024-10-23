@@ -1,6 +1,4 @@
-nums = list(map(int, input().split()))
-
-num = 1
+n1, n2, n3 = list(map(int, input().split()))
 
 def f2(num):
     if num < 10 :
@@ -8,7 +6,5 @@ def f2(num):
 
     return f2(num//10) + num%10
 
-for i in range(3):
-    num = num * nums[i]
 
-print(f2(num))
+print(f2(n1 * n2 * n3))
