@@ -6,6 +6,6 @@ def star(n):
     
     print('* ' * n)
     star(n-1)
-    print('*'  * n)
+    print('* '  * n)
 
 star(N)
