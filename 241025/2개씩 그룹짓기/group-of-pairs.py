@@ -7,7 +7,7 @@ nums.sort()
 result = 0
 for n in range(N):
     num = nums[n] + nums[2*N - 1 - n]
-    if result > num:
+    if result < num:
         result = num
 
 print(num)
