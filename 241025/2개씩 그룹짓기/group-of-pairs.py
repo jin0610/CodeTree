@@ -4,10 +4,9 @@ nums = list(map(int, input().split()))
 
 nums.sort()
 
-result = 0
+arr = []
 for n in range(N):
     num = nums[n] + nums[2*N - 1 - n]
-    if result < num:
-        result = num
+    arr.append(num)
 
-print(num)
+print(max(arr))
