@@ -6,7 +6,7 @@ days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
 day = (sum(m_days[:m2]) + d2) - (sum(m_days[:m1]) + d1) + 1
 
-if (day % 7 >= days.index(A)):
+if (day % 7 + 1 >  days.index(A)):
     print(day // 7 + 1)
 else:
     print(day // 7)
