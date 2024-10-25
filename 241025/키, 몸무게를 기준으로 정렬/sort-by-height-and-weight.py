@@ -6,7 +6,7 @@ class Student:
 
 n = int(input())
 students = []
-for i in range(5):
+for i in range(n):
     name, height, weight = input().split()
     height, weight = int(height), int(weight)
     students.append(Student(name, height, weight)) 
