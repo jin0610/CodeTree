@@ -8,7 +8,7 @@ day = (sum(m_days[:m2]) + d2) - (sum(m_days[:m1]) + d1) + 1
 
 if A == "Mon":
     print(day // 7 + 1)
-elif (day % 7) >= days.index(A):
+elif (day // 7) !=0 and (day % 7) >= days.index(A):
     print(day // 7 + 1)
 else:
     print(day // 7)
