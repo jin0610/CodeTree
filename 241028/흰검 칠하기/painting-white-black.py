@@ -1,8 +1,8 @@
 n = int(input())
 
 offset = 1000
-color = [[0,0,0] for _ in range(100000)]
-start = 100000 // 2
+color = [[0,0,0] for _ in range(200000)]
+start = 100000
 
 for _ in range(n):
     dist, direct = input().split()
