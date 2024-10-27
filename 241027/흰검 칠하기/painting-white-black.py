@@ -1,5 +1,6 @@
 n = int(input())
 
+offset = 100
 color = [[0,0,0] for _ in range(2000)]
 start = 1000
 
@@ -7,6 +8,12 @@ for _ in range(n):
     dist, direct = input().split()
     dist = int(dist)
     
+    if start + dist >= len(color):
+        for __ in range(offset):
+            color.append([0,0,0])
+            color.insert(0,[0,0,0])
+        start = start + offset
+
     if direct == "R":
         for j in range(0, dist):
             
