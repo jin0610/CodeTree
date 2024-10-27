@@ -1,6 +1,6 @@
 n = int(input())
 
-offset = 100
+offset = 1000
 color = [[0,0,0] for _ in range(2000)]
 start = 1000
 
