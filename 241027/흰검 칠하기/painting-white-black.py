@@ -1,13 +1,12 @@
 n = int(input())
 
-offset = 100
-color = [[0,0,0] for _ in range(200)]
-start = 100
+color = [[0,0,0] for _ in range(2000)]
+start = 1000
 
 for _ in range(n):
     dist, direct = input().split()
     dist = int(dist)
-
+    
     if direct == "R":
         for j in range(0, dist):
             
