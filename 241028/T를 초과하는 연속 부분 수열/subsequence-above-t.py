@@ -1,10 +1,5 @@
 import sys
 n, t = map(int, input().split())
-
-if n == 1:
-    print(1)
-    sys.exit(0)
-
 nums = list(map(int, input().split()))
 
 result, cnt = 0,0
