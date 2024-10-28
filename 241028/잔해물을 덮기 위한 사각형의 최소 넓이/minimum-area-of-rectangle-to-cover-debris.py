@@ -13,12 +13,12 @@ if x1 >= a1 and x2 <= a2 and y1 >= b1 and y2 <= b2:
 # 첫번째 사각형 
 for x in range(x1, x2):
     for y in range(y1, y2):
-        arr[x][y] += 1
+        arr[x][y] = 1
 
 # 두번째 사각형
 for x in range(a1, a2):
     for y in range(b1, b2):
-        arr[x][y] += 2
+        arr[x][y] = 2
 
 min_x, min_y, max_x, max_y = 2000, 2000, -1000, -1000
 for x in range(2000):
