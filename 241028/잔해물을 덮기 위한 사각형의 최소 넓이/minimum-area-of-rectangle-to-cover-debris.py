@@ -29,5 +29,5 @@ for x in range(2000):
             max_x = max(max_x, x)
             max_y = max(max_y, y)
 
-print(min_x, min_y, max_x, max_y)
+# print(min_x, min_y, max_x, max_y)
 print((max_x - min_x + 1) * (max_y-min_y + 1))
