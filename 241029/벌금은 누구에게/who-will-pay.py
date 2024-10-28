@@ -9,5 +9,6 @@ for i in range(M):
 
     if K in s:
         result = s.index(K)
-        print(result)
         break
+
+print(result)
