@@ -30,4 +30,6 @@ for _ in range(M):
 for i in range(1, len(A)):
     if A[i] == B[i]:
         print(i)
-        break
+        sys.exit(0)
+
+print(-1)
