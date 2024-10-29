@@ -31,7 +31,7 @@ mirror_dict1 = {0:2, 1:3, 2:0, 3:1}
 
 cnt = 0
 while in_range(x, y):
-    print(x, y, idx,mirror[x][y],  end=" ")
+
     if mirror[x][y] == '\\': # 위(0) -> 오른(1) / 오른(1) -> 위(1) / 왼쪽(3)-> 아래(2) / 아래(2) -> 왼쪽(3)
         if idx == 0 or idx ==1:
             idx = 1 - idx
