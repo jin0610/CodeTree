@@ -14,9 +14,8 @@ def in_range(x, y):
 for i in range(1, n * m):
     nr, nc = r + dr[idx], c + dc[idx]
 
-    if in_range(nr, nc) :
-        if arr[nr][nc] == 0:
-            r, c = nr, nc
+    if in_range(nr, nc) and arr[nr][nc] == 0:
+        r, c = nr, nc
             
     else:
         idx = (idx + 1) % 4
