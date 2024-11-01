@@ -13,7 +13,7 @@ def solution(arr):
     max_cnt = 0
     for i in range(N-2):
         for j in range(N-2):
-            print(i,j)
+
             arr2[i][j] = sum(arr[i][i:i+3]) + sum(arr[i+1][i:i+3]) +sum(arr[i+2][i:i+3])
             max_cnt = max(arr2[i][j], max_cnt)
     
