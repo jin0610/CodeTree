@@ -5,11 +5,15 @@ a = input()
 result = -1
 
 for i in range(len(a)):
-    if a[i] == '1':
-        num = a[:i] + '0' + a[i+1:]
-        
-    else:
-        num = a[:i] + '1' + a[i+1:]
+
+    ## if문을 사용하지 않은 풀이
+    num = a[:i] + str(1 - int(a[i])) + a[i+1:]
+
+    ## if문을 사용하는 풀이
+    # if a[i] == '1':
+    #     num = a[:i] + '0' + a[i+1:]
+    # else:
+    #     num = a[:i] + '1' + a[i+1:]
 
     result = max(result, int(num,2))  
 
