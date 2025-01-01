@@ -2,7 +2,7 @@
 
 a = input()
 
-N = int(a, 2)
+result = -1
 
 for i in range(len(a)):
     if a[i] == '1':
@@ -11,7 +11,7 @@ for i in range(len(a)):
     else:
         num = a[:i] + '1' + a[i+1:]
 
-    N = max(N, int(num,2))  
+    result = max(result, int(num,2))  
 
-print(N)
+print(result)
         
