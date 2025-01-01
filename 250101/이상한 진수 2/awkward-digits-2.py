@@ -2,10 +2,9 @@
 
 a = input()
 
-N = int(a,2)
+N = int(a, 2)
 
 for i in range(len(a)):
-    
     if a[i] == '1':
         num = a[:i] + '0' + a[i+1:]
         
