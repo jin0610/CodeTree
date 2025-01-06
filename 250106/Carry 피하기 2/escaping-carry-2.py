@@ -21,5 +21,8 @@ for i in range(n-2):
                 num = arr[i] + arr[j] + arr[k]
                 result = max(result, num)
 
-print(result)
+if result < 0:
+    print(-1)
+else:
+    print(result)
 
