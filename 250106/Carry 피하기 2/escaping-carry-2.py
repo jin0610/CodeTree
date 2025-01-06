@@ -9,20 +9,24 @@ result = -sys.maxsize
 for i in range(n-2):
     for j in range(i+1, n-1):
         for k in range(j+1, n):
-            carry = 0
+            carry = False
             num1, num2, num3 = arr[i], arr[j], arr[k]
-            while ((num1 % 10) + (num2 % 10) + (num3 % 10)) != 0:
-                if ((num1 % 10) + (num2 % 10) + (num3 % 10)) > 10:
-                    carry = 1
-                    break
+            sum_re = (num1 % 10) + (num2 % 10) + (num3 % 10)
+            while (num1 > 0 or num2 > 0 or num3 > 0) and carry == False:
+                if sum_re >= 10:
+                    carry = True
                 else:
                     num1, num2, num3 = num1 // 10, num2 // 10, num3 // 10
-            if carry == 0:
+                    sum_re = (num1 % 10) + (num2 % 10) + (num3 % 10)
+            
+            if carry == False:
                 num = arr[i] + arr[j] + arr[k]
                 result = max(result, num)
+                
 
 if result < 0:
     print(-1)
 else:
+    
     print(result)
 
