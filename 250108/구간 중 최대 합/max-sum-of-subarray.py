@@ -6,6 +6,6 @@ arr = list(map(int, input().split()))
 # Write your code here!
 result = -sys.maxsize
 
-for i in range(n-k):
-    result = max(result, sum(arr[i:i+k]))
+for i in range(n-k+1):
+    result = max(result, sum(arr[i : i + k]))
 print(result)
