@@ -4,23 +4,17 @@ import sys
 N = int(input())
 arr = [ list(map(int, input().split())) for _ in range(N)] 
 
-def in_range(x, y):
-    return x >= 0 and y >= 0 and x < N and y < N
-
-result = -sys.maxsize
+result = 0
 for i in range(N):
     for j in range(N-2):
         for k in range(N):
             for l in range(N-2):
-                if k == i and l >= j and l < j + 3:
+                if k == i and abs(i-j) <= 2:
                     continue
 
-                cnt1 = sum(arr[i][j : j + 3])
-                cnt2 = sum(arr[k][l : l + 3])
-                
-                result = max(result, cnt1 +  cnt2)
-        
-        
-        
+                cnt1 = sum(arr[i][j:j+3])
+                cnt2 = sum(arr[k][l:l+3])
+                result = max(result, cnt1 + cnt2)
+
 
 print(result)
