@@ -12,11 +12,12 @@ for i in range(N):
     for j in range(N-2):
         for k in range(N):
             for l in range(N-2):
-                if k == i and l >= j and l <= j + 2:
+                if k == i and l >= j and l < j + 3:
                     continue
 
-                cnt1 = sum(arr[i][j:j + 3])
+                cnt1 = sum(arr[i][j : j + 3])
                 cnt2 = sum(arr[k][l : l + 3])
+                
                 result = max(result, cnt1 +  cnt2)
         
         
