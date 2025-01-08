@@ -13,12 +13,13 @@ for n in range(N):
     for m in range(M):
         if arr[n][m] != "L":
             continue
-        
-        for i in range(8):
-            nx, ny = n + dxs[i], m + dys[i]
-            nx2, ny2 = n + 2 * dxs[i], m + 2 * dys[i]
-            if in_range(nx, ny) and arr[nx][ny] == "E" and in_range(nx2, ny2) and arr[nx2][ny2] == "E":
-                cnt += 1 
+
+        for dx, dy in zip(dxs, dys):
+            nx, ny = n + dx, m + dy
+            if in_range(nx, ny) and arr[nx][ny] == "E":
+                nx, ny = n + 2*dx, m + 2*dy
+                if in_range(nx, ny) and arr[nx][ny] == "E":
+                    cnt += 1
 
 print(cnt)
 
