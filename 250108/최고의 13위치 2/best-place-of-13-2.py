@@ -9,7 +9,7 @@ for i in range(N):
     for j in range(N-2):
         for k in range(N):
             for l in range(N-2):
-                if k == i and abs(i-j) <= 2:
+                if k == i and abs(j-l) <= 2:
                     continue
 
                 cnt1 = sum(arr[i][j:j+3])
