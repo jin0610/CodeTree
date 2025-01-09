@@ -9,7 +9,7 @@ for _ in range(n):
     c.append(char)
 
 # Write your code here!
-if max(x) <= k:
+if k >= max(x):
     result = 2 * c.count('H') + c.count('G')
     print(result)
     sys.exit(0)
@@ -22,7 +22,7 @@ for i in range(len(x)):
         arr[x[i]] = 2
 
 result = 0
-for i in range(1, len(arr) - k + 2):
+for i in range(1, len(arr) - k + 1):
     num = sum(arr[i:i + k +1])
     result = max(result, num)
 
