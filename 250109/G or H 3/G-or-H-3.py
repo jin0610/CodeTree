@@ -9,6 +9,11 @@ for _ in range(n):
     c.append(char)
 
 # Write your code here!
+if max(x) <= k:
+    result = 2 * c.count('H') + c.count('G')
+    print(result)
+    sys.exit(0)
+
 arr = [0] * (max(x)+1)
 for i in range(len(x)):
     if c[i] == "G":
@@ -16,9 +21,10 @@ for i in range(len(x)):
     else:
         arr[x[i]] = 2
 
-result = -sys.maxsize
+result = 0
 for i in range(1, len(arr) - k + 2):
+    num = sum(arr[i:i + k +1])
+    result = max(result, num)
 
-    result = max(result, sum(arr[i:i+k +1]))
 print(result)
 
