@@ -1,4 +1,6 @@
 ### 구간 단위로 완전탐색 / 바구니 안의 사탕2
+import sys
+
 N,K = map(int, input().split())
 candy_cnt = []
 candy_index = []
@@ -7,6 +9,10 @@ for _ in range(N):
     candy_cnt.append(c)
     candy_index.append(i)
 
+if (max(candy_index) // 2) - K < 0:
+    print(sum(candy_cnt)) 
+    sys.exit(0)
+    
 candy = [0] * (max(candy_index)+1)
 
 result = 0
