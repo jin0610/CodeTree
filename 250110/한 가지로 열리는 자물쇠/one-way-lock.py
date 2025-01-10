@@ -23,10 +23,10 @@ a, b, c = map(int, input().split())
 
 ### 완전탐색 방법 ###
 cnt = 0
-for i in range(1, n+1):
-    for j in range(1, n + 1):
-        for k in range(1, n + 1):
+for i in range(1, N + 1):
+    for j in range(1, N + 1):
+        for k in range(1, N + 1):
             # 한자리라도 주어진 조합과의 거리가 2 이내인지 확인
-            if abs(a - i) <= 2 or abs(b - j) <= 2 or abs(c-k)<=2:
+            if abs(a - i) <= 2 or abs(b - j) <= 2 or abs(c - k) <= 2:
                 cnt+=1
 print(cnt)
