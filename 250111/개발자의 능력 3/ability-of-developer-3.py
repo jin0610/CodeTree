@@ -5,9 +5,9 @@ abilities = list(map(int, input().split()))
 # Write your code here!
 min_diff = sys.maxsize
 sum_abilities = sum(abilities)
-for i in range(6):
-    for j in range(i, 6):
-        for k in range(j, 6):
+for i in range(4):
+    for j in range(i + 1, 5):
+        for k in range(j + 1, 6):
             num = abilities[i] + abilities[j] + abilities[k]
             num2 = sum_abilities - num
             min_diff = min(min_diff, abs(num-num2))
