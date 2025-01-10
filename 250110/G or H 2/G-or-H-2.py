@@ -15,7 +15,7 @@ for i in range(n):
         elif arr[j][1] == "H":
             cntH +=1
 
-        if cntG == cntH:
+        if cntG == 0 or cntH == 0 or cntG == cntH:
             dist = arr[j][0] - arr[i][0]
             result = max(result, dist)
 
