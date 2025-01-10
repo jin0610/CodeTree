@@ -23,7 +23,7 @@ a, b, c = map(int, input().split())
 
 ### 완전탐색 방법 ###
 cnt = 0
-for i in range(i, n+1):
+for i in range(1, n+1):
     for j in range(1, n + 1):
         for k in range(1, n + 1):
             # 한자리라도 주어진 조합과의 거리가 2 이내인지 확인
