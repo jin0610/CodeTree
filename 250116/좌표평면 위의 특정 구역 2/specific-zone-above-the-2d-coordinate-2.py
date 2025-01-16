@@ -5,7 +5,7 @@ N = int(input())
 points = [tuple(map(int, input().split())) for _ in range(N)]
 x = [p[0] for p in points]
 y = [p[1] for p in points]
-print(x,y)
+
 # Write your code here!
 min_rect = sys.maxsize
 for i in range(N):
