@@ -4,14 +4,13 @@ P = [int(input()) for _ in range(N)]
 
 # Write your code here!
 gift_cnt = 0
-
+P = sorted(P)
 for i in range(N):
     money = B
     cnt = 0
     for j in range(N):
         if i == j:
-            price = P[j] // 2
-            money -= price
+            money -= (P[j] // 2)
         else:
             money -= P[j]
         if money >= 0:
@@ -19,6 +18,5 @@ for i in range(N):
         else:
             break
     gift_cnt = max(gift_cnt, cnt)
-
 
 print(gift_cnt)
