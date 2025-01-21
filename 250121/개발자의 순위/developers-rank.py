@@ -1,3 +1,4 @@
+### 물체 단위로 완전탐색 / 개발자의 순위
 K, N = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(K)]
 
