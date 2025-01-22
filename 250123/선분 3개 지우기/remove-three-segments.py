@@ -18,6 +18,8 @@ for i in range(N-2):
                     if count[x] > 1:
                         overlap = False
                         break
+                    if not overlap:
+                        break
             if overlap:
                 result +=1
 print(result)
