@@ -13,9 +13,11 @@ for i in range(N):
         if i == j:
             p = p // 2
         money -= (p + s)
-        if money < 0:  
-            break
         cnt += 1
+        if money < 0:  
+            cnt -= 1
+            break
+        
     max_cnt = max(max_cnt, cnt)
 
 print(max_cnt)
