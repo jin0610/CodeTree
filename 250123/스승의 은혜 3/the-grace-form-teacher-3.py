@@ -9,19 +9,13 @@ for i in range(N):
     cnt = 0
     money = B
     for j in range(N):
-        # print("before:",i, j, p, s)
+        p, s = gifts[j]
         if i == j:
-            p, s = gifts[i]
             p = p // 2
-            money -= (p + s)
-        else:
-            money -= sum(gifts[j])
-        # print("after:",i, j, p, s)
+        money -= (p + s)
         if money < 0:  
             break
         cnt += 1
     max_cnt = max(max_cnt, cnt)
-        
-    
 
 print(max_cnt)
