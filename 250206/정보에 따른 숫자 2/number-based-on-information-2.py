@@ -12,7 +12,7 @@ for t in range(T):
 cnt = 0
 for i in range(a, b + 1):
     d1, d2 = 1000,1000
-    for j in range(1, b + 1):
+    for j in range(1, 1001):
         if alpha[j] == 'S':
             d1 = min(d1, abs(j-i))
         if alpha[j] == 'N':
