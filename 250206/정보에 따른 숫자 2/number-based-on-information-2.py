@@ -1,7 +1,7 @@
 ### 정보에 따른 숫자 2
 T, a, b = map(int, input().split())
 
-alpha = [0] * (b + 1)
+alpha = [0] * (1001)
 for t in range(T):
     char, idx = input().split()
     if char == "N":
@@ -10,8 +10,8 @@ for t in range(T):
         alpha[int(idx)] = "S"
 
 cnt = 0
-for i in range(1, b + 1):
-    d1, d2 = b, b
+for i in range(a, b + 1):
+    d1, d2 = 1000,1000
     for j in range(1, b + 1):
         if alpha[j] == 'S':
             d1 = min(d1, abs(j-i))
