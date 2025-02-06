@@ -5,10 +5,8 @@ alpha = [tuple(input().split()) for _ in range(T)]
 cnt = 0
 for i in range(a, b + 1):
     d1, d2 = 1000,1000
-    for t in range(T):
-        char, idx = input().split()
+    for char, idx in alpha:
         idx = int(idx)
-        
         if char == 'S':
             d1 = min(d1, abs(i-idx))
         if char == 'N':
