@@ -1,8 +1,6 @@
 ### 잘 모르는 상황에서의 완전탐색 / 야바위
 n = int(input())
 moves = [tuple(map(int, input().split())) for _ in range(n)]
-a, b, c = zip(*moves)
-a, b, c = list(a), list(b), list(c)
 
 # Write your code here!
 max_cnt = 0
