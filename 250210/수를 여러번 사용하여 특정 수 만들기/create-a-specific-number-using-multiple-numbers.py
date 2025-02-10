@@ -1,16 +1,12 @@
 ### 수를 여러번 사용하여 특정 수 만들기
 A, B, C = map(int, input().split())
 
-div_a = C // A
-div_b = C // B
+result = 0
+for i in range(C // A + 1):
+    hap = A * i
+    div_b = (C - hap) // B
+    hap += div_b * B
 
-max_result= 0
-for a in range(div_a + 1):
-    for b in range(div_b + 1):
-        hap = A * a + B * b
-        if hap <= C:
-            max_result = max(max_result, hap)
-        else:
-            continue
+    result = max(result, hap)
 
-print(max_result)
+print(result)
