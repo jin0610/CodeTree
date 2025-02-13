@@ -13,7 +13,7 @@ def in_range(x):
     return True
 
 num = []
-for i in range(ranges[0][0], ranges[0][1] + 1):
+for i in range(0, ranges[0][1] + 1):
     if in_range(i):
         num.append(i)
 
