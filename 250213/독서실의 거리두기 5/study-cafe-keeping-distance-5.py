@@ -3,23 +3,22 @@ N = int(input())
 seat = list(map(int,list(input())))
 
 # Write your code here!
-answer = 0
+
+idx = []
 for i in range(N):
     if seat[i] == 1:
-        continue
-    temp = seat.copy()
-    temp[i] = 1
-    idx = []
-    dist = 20
-    for j in range(N):
-        if j == i:
-            continue
-        
-        if temp[j] == 1:
-            idx.append(abs(i-j))
-    dist = min(idx)
-    answer = max(answer, dist)
+        idx.append(i)
 
-print(answer)
+dist = []
+if 0 not in idx:
+    dist.append(abs(idx[0]))
 
-    
+if (N - 1) not in idx:
+    dist.append(abs(idx[-1] - (N - 1)))
+
+for i in range(len(idx)-1):
+    diff = (idx[i] + idx[i + 1]) // 2
+    dist.append(abs(diff - idx[i]))
+    dist.append(abs(diff - idx[i + 1]))
+
+print(max(dist))
