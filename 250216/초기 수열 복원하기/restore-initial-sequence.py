@@ -11,7 +11,7 @@ for i in range(1, N + 1):
     answer[0] = i
     for j in range(N-1):
         answer[j + 1] = arr[j] - answer[j]
-        if (answer[j + 1] < 0) or (answer[j + 1] > N):
+        if (answer[j + 1] <= 0) or (answer[j + 1] > N):
             break
     
     if len(set(answer)) == N:
