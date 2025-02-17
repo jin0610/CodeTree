@@ -10,15 +10,14 @@ max_cnt = 0
 for bomb in bomb_num:
     pre_idx = num.index(bomb)
     cnt = 0
-    for j in range(pre_idx + 1, N):
-        if num[j] == bomb and (j - pre_idx) <= K:
-            cnt += 1
-
-    if cnt >= max_cnt:
+    for j in range(num.index(bomb) + 1, N):
+        if num[j] == bomb:
+            if (j - pre_idx) <= K:
+                cnt += 1
+            pre_idx = j
+            
+    if cnt != 0 and cnt >= max_cnt:
         max_bomb = bomb
         max_cnt = cnt
 
-if max_cnt == 0:
-    print(0)
-else:
-    print(max_bomb)
+print(max_bomb)
