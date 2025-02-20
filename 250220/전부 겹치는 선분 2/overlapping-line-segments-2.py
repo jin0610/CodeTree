@@ -4,16 +4,16 @@ segments = [tuple(map(int, input().split())) for _ in range(n)]
 
 # Write your code here!
 for i in range(n):
-    min_x = 100
-    max_x = 0
+    min_x2 = 100
+    max_x1 = 0
     for j in range(n):
         if i == j:
             continue
         x1, x2 = segments[j]
-        min_x = min(min_x, x2)
-        max_x = max(max_x, x1)
+        min_x2 = min(min_x2, x2)
+        max_x1 = max(max_x1, x1)
 
-    if min_x <= max_x:
+    if min_x2 >= max_x1:
         answer="Yes"
         break
     else:
