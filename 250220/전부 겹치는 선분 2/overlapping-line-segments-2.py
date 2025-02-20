@@ -1,3 +1,4 @@
+### 케이스별로 나누기 / 전부 겹치는 선분2
 n = int(input())
 segments = [tuple(map(int, input().split())) for _ in range(n)]
 
@@ -14,6 +15,7 @@ for i in range(n):
 
     if min_x <= max_x:
         answer="Yes"
+        break
     else:
         answer="No"
 
