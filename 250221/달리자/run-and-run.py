@@ -9,9 +9,8 @@ for i in range(n):
     move = 0
     if A[i] > B[i]:
         move = A[i] - B[i]
+        A[i + 1] += move
         dist = dist + move
-        if move > 0:
-            A[i + 1] += move
 
 print(dist)
  
