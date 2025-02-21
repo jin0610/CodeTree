@@ -9,7 +9,7 @@ while True:
     pos += speed
     time += 1
 
-    if pos > X:
+    if pos >= X:
         break
 
     if (pos >= X // 2):
