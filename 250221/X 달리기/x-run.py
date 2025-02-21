@@ -5,9 +5,12 @@ X = int(input())
 pos = 0
 speed = 1
 time = 0
-while pos < X:
+while True:
     pos += speed
     time += 1
+
+    if pos > X:
+        break
 
     if (pos >= X // 2):
         if speed == 1:
