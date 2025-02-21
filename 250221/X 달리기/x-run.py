@@ -5,7 +5,7 @@ X = int(input())
 pos = 0
 speed = 1
 time = 0
-while pos != X:
+while pos < X:
     pos += speed
     time += 1
 
