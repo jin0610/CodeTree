@@ -6,7 +6,6 @@ B = list(map(int, input().split()))
 # Write your code here!
 dist = 0
 for i in range(n):
-    move = 0
     if A[i] > B[i]:
         move = A[i] - B[i]
         A[i + 1] += move
