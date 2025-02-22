@@ -6,20 +6,30 @@ pos = 0
 speed = 1
 time = 0
 while True:
-    pos += speed
-    time += 1
-    re_dist = X - pos
-
-    if re_dist <= 0:
+    pos += speed    # 현재 속도로 이동
+    time += 1       # 시간 1 증가
+    speed += 1      # 속도 증가
+    if pos == X:
         break
 
-    if (pos >=  X // 2):
-        if re_dist >= speed * 2 or speed == 1:
-            continue
-        else:
-            speed -= 1
-    else:
-        speed += 1
+    ## 속도 1증가했을 때
+    speed_increase = 0
+    for i in range(speed):
+        speed_increase += i
+    
+    # 다음 위치가 목표 지점을 초과할 경우 속도 감소
+    if (X - (pos + speed) < speed_increase):
+        speed -= 1
+
+    ## 현재 속도로 정지할 경우 거리 계산
+    stay_speed = 0
+    for i in range(speed):
+        stay_speed += i
+    
+    # 다음 위치가 목표 지점을 초과할 경우 속도 감소
+    if (X - (pos + speed) < stay_speed):
+        speed -= 1
+    
     
 print(time)
     
