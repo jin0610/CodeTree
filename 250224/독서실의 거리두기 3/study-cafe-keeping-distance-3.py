@@ -9,12 +9,7 @@ for i in range(N):
         seats_idx.append(i)
 
 max_dist = 0
-cnt = 1
 for i in range(len(seats_idx)-1):
-    if max_dist == seats_idx[i+1] - seats_idx[i]:
-        cnt += 1
-    else:
-        cnt = 1
     max_dist = max(max_dist, seats_idx[i + 1] - seats_idx[i])
 
 answer = max_dist // 2
