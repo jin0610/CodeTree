@@ -6,11 +6,15 @@ seats = list(input())
 seats_idx = []
 for i in range(N):
     if seats[i] == '1':
-        seats_idx.append(i)
+        seats_idx.append(i + 1)
+
+    # 처음 번호가 1이 아닐 경우 0을 추가
+    if i == 0 and seats[i] != '1':
+        seats_idx.append(0)
 
     # 마지막 번호가 1이 아닐 경우 N + 1을 추가
     if i == N - 1 and seats[i] != '1':
-        seats_idx.append(N)
+        seats_idx.append(N + 1)
 
 # Step 2. 각 간격 중 가장 긴 간격을 확인
 max_dist = 0
@@ -24,8 +28,16 @@ for i in range(len(seats_idx)-1):
     dist = seats_idx[i + 1] - seats_idx[i]
     min_dist = min(min_dist, dist)
 
-if N in seats_idx:
-    seats_idx[-1] = N - 1
+# Step 4. 처음과 마지막이 0일 경우 체크
+if 0 in seats_idx:
+    seats_idx[0] = 1
+    dist = 1000
+    for i in range(len(seats_idx)-1):
+        dist = min(dist,seats_idx[i + 1] - seats_idx[i])
+    min_dist = max(min_dist, dist)
+
+if N + 1 in seats_idx:
+    seats_idx[-1] = N
     dist = 1000
     for i in range(len(seats_idx)-1):
         dist = min(dist,seats_idx[i + 1] - seats_idx[i])
