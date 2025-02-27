@@ -15,9 +15,9 @@ for i in range(N):
         B_score += s
 
     if i == 0:
-        honor = c
+        honor = 'AB'
         continue
-        
+
     max_score = max(A_score, B_score)
     if max_score == A_score and max_score == B_score:
         if honor != 'AB':
