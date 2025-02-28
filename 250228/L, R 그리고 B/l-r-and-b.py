@@ -17,9 +17,12 @@ for i in range(10):
         L.append(board[i].index('L'))
 
 dist = abs(B[0] - L[0]) + abs(B[1] - L[1]) -1
-if B[0] == R[0] and  R[0] == L[0]:
-    dist += 2
+if (B[1] < R[1] and R[1] < L[1]) or (B[1] > R[1] and R[1] > L[1]):
+    if B[0] == R[0] and R[0] == L[0]:
+        dist += 2
 
-if B[1] == R[1] and  R[1] == L[1]:
-    dist += 2
+if (B[0] < R[0] and R[0] < L[0]) or (B[0] > R[0] and R[0] > L[0]):
+    if B[1] == R[1] and  R[1] == L[1]:
+        dist += 2
+
 print(dist)
