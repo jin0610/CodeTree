@@ -16,11 +16,13 @@ for i in range(10):
         L.append(i)
         L.append(board[i].index('L'))
 
+
 dist = abs(B[0] - L[0]) + abs(B[1] - L[1]) -1
+
+# B, L, R이 일직선 상에 있는 경우 2칸 돌아서 가므로 +2
 if (B[1] < R[1] and R[1] < L[1]) or (B[1] > R[1] and R[1] > L[1]):
     if B[0] == R[0] and R[0] == L[0]:
         dist += 2
-
 if (B[0] < R[0] and R[0] < L[0]) or (B[0] > R[0] and R[0] > L[0]):
     if B[1] == R[1] and  R[1] == L[1]:
         dist += 2
