@@ -4,7 +4,7 @@ n, m = map(int, input().split())
 arr = list(map(int, input().split()))
 
 # m이 0인 경우 0 출력
-if m == 0 or arr.count(0) == n:
+if m == 0 and arr.count(0) == n:
     print(0)
     sys.exit(0)
 
