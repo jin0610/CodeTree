@@ -20,14 +20,16 @@ if n <= use_dist:
 idx = arr.index(1)
 cnt = 0
 while True:
-    idx += use_dist
     cnt += 1
+    idx += use_dist
+
+    if idx < n:
+        if arr[idx] == 0:
+            idx += 1 
 
     if idx >= n:
         break
 
-    if arr[idx] == 0:
-        idx += 1
-
+    
     
 print(cnt)
