@@ -3,6 +3,11 @@ import sys
 n, m = map(int, input().split())
 arr = list(map(int, input().split()))
 
+# m이 0인 경우 0 출력
+if m == 0:
+    print(0)
+    sys.exit(0)
+
 # 와이파이를 사용 가능한 거리
 use_dist = 2 * m + 1
 
