@@ -23,12 +23,18 @@ while True:
     cnt += 1
     idx += use_dist
 
-    if idx < n:
-        if arr[idx] == 0:
-            idx += 1 
+    while True:
+        if idx < n:
+            if arr[idx] == 0:
+                idx+=1
+            else:
+                break
+        else:
+            print(cnt)
+            sys.exit(0)
 
-    if idx >= n:
-        break
+    # if idx >= n:
+    #     break
 
     
     
