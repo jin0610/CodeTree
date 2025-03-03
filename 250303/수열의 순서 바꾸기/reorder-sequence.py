@@ -10,5 +10,5 @@ else:
     for i in range(n - 2, -1, -1):
         if sequence[i] > sequence[i + 1]:
             answer += i + 1
-        break
+            break
     print(answer)
