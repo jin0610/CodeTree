@@ -5,6 +5,7 @@ numbers = list(map(int, input().split()))
 # Please write your code here.
 odds = 0
 pairs = 0
+
 for i in range(N):
     if numbers[i] % 2== 0:
         pairs += 1
@@ -29,10 +30,13 @@ else:
     comb = 2 * pairs
     remain_odds = odds - pairs
 
-    if (remain_odds % 3) % 2 == 0:
-        comb += remain_odds // 3 * 2 + 1
+    if (remain_odds % 3) == 0:
+        comb += remain_odds // 3 * 2
     else:
-        comb += remain_odds // 3 * 2 - 1
+        if (remain_odds % 3) % 2 == 0:
+            comb += remain_odds // 3 * 2 + 1
+        else:
+            comb += remain_odds // 3 * 2 - 1
 
 print(comb)
 
