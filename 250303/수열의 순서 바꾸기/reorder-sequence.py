@@ -7,8 +7,8 @@ if n == 1:
     print(0)
 else:
     answer = 0
-    for i in range(n-1):
+    for i in range(n - 2, -1, -1):
         if sequence[i] > sequence[i + 1]:
-            answer = i + 1
-            break
+            answer += i + 1
+        break
     print(answer)
