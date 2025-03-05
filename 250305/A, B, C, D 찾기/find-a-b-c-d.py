@@ -4,8 +4,9 @@ arr = list(map(int, input().split()))
 # Step 1. 오름차순으로 정렬
 arr = sorted(arr)
 
-# Step2. 배열의 첫번째(arr[0]), 두번째(arr[1]) 더한 수가 5번째(arr[4])와 같지 않은 경우 D는 다섯번째(arr[4]) 숫자임
-if arr[0] + arr[1] != arr[4]:
-    print(arr[0], arr[1], arr[2], arr[4])
-else:
-    print(arr[0], arr[1], arr[2], arr[3])
+# Step2. A, B, C, D 찾기
+# A + B가 C보다 크거나 작기 때문에 A, B, C는 arr[0] ~ arr[2] 까지임
+A, B, C = arr[0], arr[1], arr[2]
+D = arr[-1] - (A + B + C)
+
+print(A, B, C, D)
