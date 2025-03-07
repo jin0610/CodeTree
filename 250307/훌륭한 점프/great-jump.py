@@ -2,23 +2,22 @@
 N, K = map(int, input().split())
 stone = list(map(int,input().split()))
 
-def is_possible(max_val):
-    available_indices = []
+def is_possible(val):
+    temp = []
     for i, elem in enumerate(stone):
-        if elem <= max_val:
-            available_indices.append(i)
+        if elem <= val:
+            temp.append(i)
 
-    arr_size = len(available_indices)
-    for i in range(1, arr_size):
-        dist = available_indices[i] - available_indices[i-1]
+    for i in range(1, len(temp)):
+        dist = temp[i] - temp[i-1]
         if dist > K:
             return False
     
     return True
 
-answer = 0
-for i in range(1, N):
+answer = 101
+for i in range(100, max(stone[0], stone[-1])-1, -1):
     if is_possible(i):
-        answer = max(answer, i)
+        answer = min(answer, i)
         
 print(answer)
