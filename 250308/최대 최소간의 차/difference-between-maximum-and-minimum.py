@@ -7,43 +7,24 @@ nums = list(map(int, input().split()))
 # 처음부터 최대 최소가 K 이하면 
 if max(nums) - min(nums) <= K:
     print(0)
-
-min_cost = 0
-
-# 차이가 K + 1 이하면 최대값만 -1하기
-if max(nums) - min(nums) == K + 1:      
-    
     sys.exit(0)
 
-# 최대와 최소 간의 차가 K + 1 이상일 경우
-while True:
-    _max, _min = max(nums), min(nums)   # 최대 최소 구하기
-    diff = _max - _min                  # 최대와 최소 차 구하기
 
-    if diff <= K:                       # 차이가 K 이하면 멈추기
-        break
-
-    if diff == K + 1:
-        if nums.count(_max) >= nums.count(_min):
-            for i in range(N):
-                if nums[i] == _max:
-                    nums[i] -= 1
-                    min_cost += 1
+_min, _max = min(nums), max(nums)
+min_cost = sys.maxsize
+for p in range(_min, _max + 1):
+    cost = 0
+    for num in nums:
+        if p <= num and num <= p + K:
+            continue
+        elif num < p:
+            cost += p - num
         else:
-            for i in range(N):
-                if nums[i] == _min:
-                    nums[i] += 1
-                    min_cost += 1
+            cost -= p - num
+
+    min_cost = min(min_cost, cost)
+
+print(min_cost)
             
-        print(min_cost)
 
-    for i in range(N):
-        if nums[i] == _max:
-            nums[i] -= 1
-            min_cost += 1
 
-        elif nums[i] == _min:
-            nums[i] += 1
-            min_cost += 1
-
-print(min_cost)    
