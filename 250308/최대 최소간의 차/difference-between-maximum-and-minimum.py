@@ -10,17 +10,16 @@ if max(nums) - min(nums) <= K:
     sys.exit(0)
 
 
-_min, _max = min(nums), max(nums)
 min_cost = sys.maxsize
-for p in range(_min, _max + 1):
+for point in range(min(nums), max(nums) + 1):
     cost = 0
     for num in nums:
-        if p <= num and num <= p + K:
+        if num >= point and num <= point + K:
             continue
-        elif num < p:
-            cost += p - num
+        elif num < point:
+            cost += abs(point - num)
         else:
-            cost -= p - num
+            cost += abs(num - (point + K))
 
     min_cost = min(min_cost, cost)
 
