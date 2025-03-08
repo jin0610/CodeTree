@@ -27,14 +27,14 @@ while True:
     if diff <= K:                       # 차이가 K 이하면 멈추기
         break
 
-    if diff > K + 1:
-        for i in range(N):
-            if nums[i] == _max:
-                nums[i] -= 1
-                min_cost += 1
 
-            elif nums[i] == _min:
-                nums[i] += 1
-                min_cost += 1
+    for i in range(N):
+        if nums[i] == _max:
+            nums[i] -= 1
+            min_cost += 1
+
+        elif nums[i] == _min:
+            nums[i] += 1
+            min_cost += 1
 
 print(min_cost)    
