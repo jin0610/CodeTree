@@ -12,11 +12,7 @@ min_cost = 0
 
 # 차이가 K + 1 이하면 최대값만 -1하기
 if max(nums) - min(nums) == K + 1:      
-    for i in range(N):
-        if nums[i] == _max:
-            nums[i] -= 1
-            min_cost += 1
-    print(min_cost)
+    
     sys.exit(0)
 
 # 최대와 최소 간의 차가 K + 1 이상일 경우
@@ -27,6 +23,19 @@ while True:
     if diff <= K:                       # 차이가 K 이하면 멈추기
         break
 
+    if diff == K + 1:
+        if nums.count(_max) >= nums.count(_min):
+            for i in range(N):
+                if nums[i] == _max:
+                    nums[i] -= 1
+                    min_cost += 1
+        else:
+            for i in range(N):
+                if nums[i] == _min:
+                    nums[i] += 1
+                    min_cost += 1
+            
+        print(min_cost)
 
     for i in range(N):
         if nums[i] == _max:
