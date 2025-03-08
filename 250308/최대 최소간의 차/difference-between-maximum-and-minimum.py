@@ -5,7 +5,7 @@ N, K = map(int, input().split())
 nums = list(map(int, input().split()))
 
 # 처음부터 최대 최소가 K 이하면 
-if  <= K:
+if max(nums) - min(nums) <= K:
     print(0)
 
 min_cost = 0
