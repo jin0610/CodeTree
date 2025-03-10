@@ -6,13 +6,22 @@ strs = input()
 str_len = 1
 while True:
     check = False
-    for i in range(n - str_len):
+    for i in range(n - str_len + 1):
         tmp = strs[i : i + str_len]
-        if strs.count(tmp) >= 2:
-            check = True   
+        cnt = 0
+        for j in range(n - str_len + 1):
+            tmp2 = strs[j : j + str_len]
+            if tmp == tmp2:
+                cnt += 1
+                if cnt >= 2:
+                    check = True
+                    break
+        
+        if check == True:
             break
+        
     if check == False:
-        print(str_len)
         break
     else:
         str_len += 1
+print(str_len)
