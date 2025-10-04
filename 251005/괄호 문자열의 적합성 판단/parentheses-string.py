@@ -1,8 +1,6 @@
 strs = input()
 
 # Please write your code here.
-s = list()
-
 def isCom(strs):
     s = list()
 
