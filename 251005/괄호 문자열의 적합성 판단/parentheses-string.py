@@ -11,11 +11,12 @@ def isCom(strs):
             if s and s[-1] == "(":
                 s.pop()
             else:
+                return False
                 break
-
     if s:
         return False
-    return True
+    else:
+        return True
 
 if isCom(strs):
     print('Yes')
