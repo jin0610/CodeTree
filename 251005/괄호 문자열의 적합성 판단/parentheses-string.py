@@ -12,7 +12,7 @@ def isCom(strs):
                 s.pop()
             else:
                 return False
-                break
+
     if s:
         return False
     else:
