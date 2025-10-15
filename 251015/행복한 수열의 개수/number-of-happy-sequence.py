@@ -23,8 +23,8 @@ for i in range(N):
             cnt = 1
 
         if cnt >= M:
-                result = result + 1
-                break
+            result = result + 1
+            break
 
         
 
@@ -38,6 +38,6 @@ for i in range(N):
             cnt = 1
 
         if cnt >= M:
-                result = result + 1
-                break
+            result = result + 1
+            break
 print(result)
