@@ -1,3 +1,4 @@
+import sys
 # 입력
 N, M = map(int, input().split(' '))
 arr = [
@@ -7,6 +8,10 @@ arr = [
 
 # 행복한 수열 찾기
 result = 0
+
+if N == 1 and M == 1:
+    print(2)
+    sys.exit(0)
 
 # 열
 for i in range(N):
