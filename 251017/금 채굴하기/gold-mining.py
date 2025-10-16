@@ -1,11 +1,6 @@
 N, M = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(N)]
 
-def in_range(x, y):
-    if x >= 0 and x < N and y >= 0 and y < N:
-        return True
-    return False
-
 # 0 <= K <= N
 result = 0 # 금의 개수
 for i in range(N):
