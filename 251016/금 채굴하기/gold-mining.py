@@ -19,7 +19,7 @@ for i in range(N):
             
             for x in range(N):
                 for y in range(N):
-                    if abs(i - x) + abs(j - y) == k:
+                    if abs(i - x) + abs(j - y) <= k:
                         gold += grid[x][y]
             if cost < M * gold:
                 result = max(result, gold)
