@@ -12,7 +12,7 @@ def RunLengthEncoding(strs):
     temp_str = temp_str + s + str(cnt)
     return len(temp_str)
 
-answer = len(A)
+answer = len(run_length_encoding(A))
 B = A[:]
 while True:
     B = B[-1] + B[:-1]
