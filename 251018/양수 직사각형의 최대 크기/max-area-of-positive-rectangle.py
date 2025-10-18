@@ -11,7 +11,7 @@ def isPositiveSum(rect):
 
     for y in range(y1, y2 + 1):
         for x in range(x1, x2 + 1):
-            if grid[y][x] < 0:
+            if grid[y][x] <= 0:
                 return False
 
     return True
