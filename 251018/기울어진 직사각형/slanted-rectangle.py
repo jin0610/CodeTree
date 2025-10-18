@@ -1,38 +1,36 @@
-N = int(input())
-grid = [
-    list(map(int, input().split()))
-    for _ in range(N)
-]
-
-# 1,2,3,4번 방향
-dirs = [(-1, 1), (-1, -1), (1, -1), (1, 1)]
-max_sum = 0 # 최대합
-
 def in_range(x, y):
     return x >= 0 and x < N and y >= 0 and y < N
 
-for i in range(N):
-    for j in range(N):
-        visited = [0, 0, 0, 0] # 각 방향 순회 여부
-        num = 0  # 합
-        cx, cy = j, i
-        for d in range(4):
-            move_cnt = 0
-            while True:
-                nx, ny = cx + dirs[d][1], cy + dirs[d][0]
-                if in_range(nx, ny):
-                    move_cnt += 1
-                    num += grid[cy][cx]
-                    cx, cy = nx, ny
-                else:
-                    break
+def calculate(x, y, w, h):
+    move_cnt = [w, h, w, h]
+    num = 0
+    for dx, dy, length in zip(dxs, dys, move_cnt):
+        for _ in range(length):
+            x += (dx)
+            y += (dy)
 
-            if move_cnt > 0:
-                visited[d] = 1
+            if in_range(x, y):
+                num += grid[y][x]
             else:
-                break
-        
-        if 0 not in visited:
-            max_sum = max(max_sum, num)
+                return 0
 
-print(max_sum)
+    return num
+        
+if __name__ == '__main__':
+    N = int(input())
+    grid = [
+        list(map(int,input().split()))
+        for _ in range(N)
+    ]
+
+    dxs = [1, -1, -1, 1]
+    dys = [-1, -1, 1, 1]
+    answer = 0
+
+    for i in range(N):
+        for j in range(N):
+            for w in range(1, N//2 + 1):
+                for h in range(1, N//2 + 1):
+                    answer = max(answer, calculate(j, i, w, h))
+
+    print(answer)
