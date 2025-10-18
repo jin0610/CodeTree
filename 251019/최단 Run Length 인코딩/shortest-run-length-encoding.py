@@ -1,30 +1,22 @@
-import sys
-
 A = input()
-list_A = list(A)
 
-def shift():
-    temp = list_A[-1]
-    for i in range(len(list_A) - 1, 0 , -1):
-        list_A[i] = list_A[i - 1]
-    list_A[0] = temp
-
-def RunLengthEncoding(str_list):
+def RunLengthEncoding(strs):
     temp_str = ""
-    cnt, s = 1, str_list[0]
-    for i in range(len(str_list)):
-        if str_list[i] == s:
+    cnt, s = 1, strs[0]
+    for i in range(len(strs)):
+        if strs[i] == s:
             cnt += 1
         else:
             temp_str = temp_str + s + str(cnt)
-            cnt, s = 1, str_list[i]
+            cnt, s = 1, strs[i]
     temp_str = temp_str + s + str(cnt)
     return len(temp_str)
 
-answer = sys.maxsize
+answer = len(A)
+B = A[:]
 while True:
-    shift()
-    answer = min(answer, RunLengthEncoding(list_A))
-    if list_A == list(A):
+    B = B[-1] + B[:-1]
+    answer = min(answer, RunLengthEncoding(B))
+    if B == A:
         break
 print(answer)
