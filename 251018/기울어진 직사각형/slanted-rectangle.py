@@ -6,13 +6,13 @@ def calculate(x, y, w, h):
     num = 0
     for dx, dy, length in zip(dxs, dys, move_cnt):
         for _ in range(length):
-            x += (dx)
-            y += (dy)
+            x += dx
+            y += dy
 
-            if in_range(x, y):
-                num += grid[y][x]
-            else:
+            if not in_range(x, y):
                 return 0
+            
+            num += grid[y][x]
 
     return num
         
@@ -29,8 +29,8 @@ if __name__ == '__main__':
 
     for i in range(N):
         for j in range(N):
-            for w in range(1, N//2 + 1):
-                for h in range(1, N//2 + 1):
+            for w in range(1, N):
+                for h in range(1, N):
                     answer = max(answer, calculate(j, i, w, h))
 
     print(answer)
