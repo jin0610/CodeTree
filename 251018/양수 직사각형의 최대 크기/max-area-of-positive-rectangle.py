@@ -16,7 +16,7 @@ def isPositiveSum(rect):
 
     return True
 
-answer = -sys.maxsize
+answer = -1
 for y1 in range(N):
     for x1 in range(M):
         for y2 in range(y1, N):
