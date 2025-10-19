@@ -1,9 +1,13 @@
+import sys
 N, M = map(int,input().split())
 blocks = [
     int(input())
     for _ in range(N)
 ]
 
+if M == 1:
+    print(0)
+    sys.exit()
 def isSequence():
     global blocks, M
     for i in range(len(blocks)-1):
@@ -14,7 +18,6 @@ def isSequence():
             cnt += 1
         if cnt >= M:
             return True
-
     return False
 
 def remove_num():
