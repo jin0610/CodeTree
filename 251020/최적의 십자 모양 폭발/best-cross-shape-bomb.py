@@ -23,15 +23,16 @@ def cross_bomb_shape(center_r, center_c, grid):
     #     print(*grid[i])
     # 중력 작용
     for c in range(n):
-        for r in range(n - 1, 0, -1):
+        for r in range(n - 1, -1, -1):
             if grid[r][c] == 0:
                 nr = r - 1
                 while nr >= 0:
-                    if grid[nr][c] == 0:
-                        nr -= 1
-                    grid[r][c] = grid[nr][c]
-                    grid[nr][c] = 0
-                    break
+                    if grid[nr][c] != 0:
+                        grid[r][c] = grid[nr][c]
+                        grid[nr][c] = 0
+                        break
+                    nr -= 1
+                    
     # print("gravity!")
     # for i in range(n):
     #     print(*grid[i])
@@ -54,7 +55,7 @@ def cross_bomb_shape(center_r, center_c, grid):
     return cnt
 
 result = 0
-# result = cross_bomb_shape(1, 1, grid)
+# result = cross_bomb_shape(4, 2, grid)
 for r in range(n):
     for c in range(n):
         tmp = [row[:] for row in grid]
