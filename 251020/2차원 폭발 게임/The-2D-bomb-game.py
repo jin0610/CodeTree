@@ -1,71 +1,70 @@
+import sys
+input = sys.stdin.readline
+
 N, M, K = map(int, input().split())
-grid = [
-    list(map(int,input().split()))
-    for _ in range(N)
-]
+grid = [list(map(int, input().split())) for _ in range(N)]
 
-# 연속된 부분의 끝점 확인
-def get_bomb_end_idx(curr_row, col, num):
-    global grid
-    for row in range(curr_row + 1, N):
-        if grid[row][col] != num:
-            return row - 1
-    return N - 1
+def explode_once(g):
+    """한 번의 '폭발+중력'을 수행. 변화가 있으면 True 반환."""
+    changed = False
+    Nlen = N
 
-# 폭발
-def bomb():
-    while True:
-        did_explode = False
+    # 열 단위로 처리
+    for c in range(Nlen):
+        col = [g[r][c] for r in range(Nlen)]
+        # run 탐색: 제거 마스크
+        remove = [False]*Nlen
 
-        for c in range(N):
-            for curr_row in range(N):
-                if grid[curr_row][c] == 0:
-                    continue
-                
-                end_row = get_bomb_end_idx(curr_row, c, grid[curr_row][c])
-                if end_row - curr_row + 1 >= M:
-                    for row in range(curr_row, end_row + 1):
-                        grid[row][c] = 0
-                    did_explode = True
-        gravity()
-        if not did_explode:
-            return
-        
-# 회전
-def rotation():
-    global grid
-    temp = [grid[r][:] for r in range(N)]
+        r = 0
+        while r < Nlen:
+            if col[r] == 0:
+                r += 1
+                continue
+            val = col[r]
+            start = r
+            r += 1
+            while r < Nlen and col[r] == val:
+                r += 1
+            length = r - start
+            if length >= M:
+                changed = True
+                for i in range(start, r):
+                    remove[i] = True
 
-    for r in range(N):
-        for c in range(N):
-            grid[c][N - r - 1] = temp[r][c]
+        if changed:
+            # 중력: 제거되지 않은 값만 아래로 내림
+            kept = [col[i] for i in range(Nlen) if not remove[i] and col[i] != 0]
+            zeros = [0]*(Nlen - len(kept))
+            new_col = zeros + kept
+            for r in range(Nlen):
+                g[r][c] = new_col[r]
 
-    gravity()
+    return changed
 
-# 중력
-def gravity():
-    global grid
+def bomb(g):
+    # 변화 없을 때까지 반복
+    while explode_once(g):
+        pass
+
+def rotate_90_cw(g):
+    # 90도 시계 회전: zip 기반 O(N^2)
+    # 회전 후 바로 중력 한 번
+    ng = [list(row) for row in zip(*g[::-1])]
+    # 중력만 빠르게 한 번 더 (열 단위 압축)
     for c in range(N):
-        for r in range(N - 1, 0, -1):
-            if grid[r][c] == 0:
-                nr = r - 1
-                while nr >= 0:
-                    if grid[nr][c] != 0:
-                        grid[r][c] = grid[nr][c]
-                        grid[nr][c] = 0
-                        break
-                    else:
-                        nr -= 1
+        col = [ng[r][c] for r in range(N)]
+        kept = [x for x in col if x != 0]
+        zeros = [0]*(N - len(kept))
+        new_col = zeros + kept
+        for r in range(N):
+            ng[r][c] = new_col[r]
+    return ng
 
 for _ in range(K):
-    bomb()
-    rotation()
-bomb()
+    bomb(grid)
+    grid = rotate_90_cw(grid)
+bomb(grid)
 
-cnt = 0
-for i in range(N):
-    for j in range(N):
-        if grid[i][j] != 0:
-            cnt += 1
+# 남은 블록 수
+cnt = sum(1 for r in range(N) for c in range(N) if grid[r][c] != 0)
 print(cnt)
-
