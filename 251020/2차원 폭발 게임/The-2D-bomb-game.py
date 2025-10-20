@@ -69,7 +69,8 @@ def gravity():
                         nr -= 1
                     
 for _ in range(K):
-    bomb()
+    if is_bomb():
+        bomb()
     rotation()
         
 if is_bomb():
