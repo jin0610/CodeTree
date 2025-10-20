@@ -1,6 +1,23 @@
 N, M, K = map(int, input().split())
 numbers_2d = [list(map(int, input().split())) for _ in range(N)]
 
+# 연속으로 반복된 부분이 있는 지 확인
+def is_bomb():
+    global numbers_2d
+    current_row_idx, end_row_idx = 0, 0
+    for r in range(N):
+        for c in range(N):
+            current_row_idx = r
+            if numbers_2d[r][c] == 0:
+                continue
+            end_row_idx = find_bomb_end_row(current_row_idx, c, numbers_2d[r][c])
+            if end_row_idx - current_row_idx + 1 >= M:
+                return True
+
+    if end_row_idx - current_row_idx + 1 >= M:
+        return True
+    return False
+
 # 연속한 부분의 끝 점 찾기
 def find_bomb_end_row(r, c, num):
     for end_row in range(r + 1, N):
@@ -54,7 +71,9 @@ def gravity():
 for _ in range(K):
     bomb()
     rotation()
-bomb()
+        
+if is_bomb():
+    bomb()
 
 cnt = 0
 for i in range(N):
