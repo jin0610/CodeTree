@@ -12,16 +12,6 @@ def get_bomb_end_idx(curr_row, col, num):
             return row - 1
     return N - 1
 
-# 연속된 부분이 있는지 확인
-# def is_bomb_possible():
-#     global grid
-    
-#     for r in range(N):
-#         for c in range(N):
-#             if grid[r][c] == 0:
-#                 continue
-#             if 
-
 # 폭발
 def bomb():
     while True:
@@ -44,16 +34,11 @@ def bomb():
 # 회전
 def rotation():
     global grid
-    temp = [
-        [ 0 for _ in range(N)]
-        for _ in range(N)
-    ]
+    temp = [grid[r][:] for r in range(N)]
 
     for r in range(N):
         for c in range(N):
-            temp[c][N - r - 1] = grid[r][c]
-
-    grid = [temp[r][:] for r in range(N)]
+            grid[c][N - r - 1] = temp[r][c]
 
     gravity()
 
