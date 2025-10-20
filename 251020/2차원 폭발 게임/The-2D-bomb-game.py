@@ -1,3 +1,4 @@
+import sys
 N, M, K = map(int, input().split())
 numbers_2d = [list(map(int, input().split())) for _ in range(N)]
 
@@ -67,7 +68,10 @@ def gravity():
                         break
                     else:
                         nr -= 1
-                    
+if M == 1:
+    print(0)
+    sys.exit(0)
+
 for _ in range(K):
     while is_bomb():
         bomb()
