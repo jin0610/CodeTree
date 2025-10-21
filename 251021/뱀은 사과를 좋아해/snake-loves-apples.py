@@ -13,9 +13,9 @@ for _ in range(M):
     grid[x][y] = 1
 
 # 뱀의 움직임
-snake_movement = [
-    (direction, int(dist)) for direction, dist in [input().split() for _ in range(K)]
-]
+# snake_movement = [
+#     (direction, int(dist)) for direction, dist in [input().split() for _ in range(K)]
+# ]
 
 # 상 하 좌 우
 dxs, dys = [-1, 1, 0, 0],[0, 0, -1, 1]
@@ -34,7 +34,8 @@ time = 0
 move_idx = 0
 while move_idx < K:
     finished = False
-    direction, dist = snake_movement[move_idx]
+    direction, dist = input().split()
+    dist = int(dist)
 
     for _ in range(dist):
         time += 1
