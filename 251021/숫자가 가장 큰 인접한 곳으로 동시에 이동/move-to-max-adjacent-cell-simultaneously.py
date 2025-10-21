@@ -17,8 +17,8 @@ def in_range(r, c):
 
 def get_beads_new_position():    
     global grid, marbles
-    new_position = []
-    check_position = []
+
+    new_position, temp = [], []
     for beads in marbles:
         r, c = beads
         max_r, max_c, max_num = r, c, grid[r][c]
@@ -26,17 +26,17 @@ def get_beads_new_position():
             nr, nc = r + dr, c + dc
             if in_range(nr, nc):
                 if grid[nr][nc] > max_num:
-                    max_num = grid[nr][nc]
-                    max_r, max_c = nr, nc
+                    max_r, max_c, max_num = nr, nc, grid[nr][nc]
 
         if (max_r, max_c) not in new_position:
-            if (max_r, max_c) not in check_position:
-                new_position.append((max_r, max_c))
+            if (max_r, max_c) in temp:
+                continue
+            new_position.append((max_r, max_c))
         else:
             new_position.remove((max_r, max_c))
-            check_position.append((max_r, max_c))
+            temp.append((max_r, max_c))
     
-    marbles = new_position
+    marbles = new_position[:]
     return marbles
 
 for _ in range(T):
