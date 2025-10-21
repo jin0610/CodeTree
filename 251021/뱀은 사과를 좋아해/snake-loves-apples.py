@@ -30,26 +30,36 @@ def in_range(x, y):
     return x >= 0 and x < N and y >= 0 and y < N
 
 snake = deque([(0, 0)])
-length = 1
 time = 0
-for direction, dist in snake_movement:
+move_idx = 0
+while move_idx < K:
     finished = False
-    for d in range(1, dist + 1):
+    direction, dist = snake_movement[move_idx]
+
+    for _ in range(dist):
         time += 1
         cx, cy = snake[-1]
         nx, ny = cx + dirs[direction][0], cy + dirs[direction][1]
-        if in_range(nx, ny) and (nx, ny) not in snake:   # 머리가 움직일 곳이 범위 내거나, 부딪히지 않았을 경우
-            if grid[nx][ny] == 1:   # 사과가 있을 경우, 길이 + 1, deque 저장
-                length += 1
-                grid[nx][ny] = 0
-            else:
-                snake.popleft()
-            snake.append((nx, ny))
-        else:
+        # 범위내에 있는 지 판단
+        if not in_range(nx, ny):
             finished = True
             break
+
+        # 사과가 있을 경우 사과를 먹고 길이 늘림
+        if grid[nx][ny] == 1:
+            grid[nx][ny] = 0
+        else: 
+            x, y = snake.popleft()
+
+        # 머리가 다음으로 이동할 nx,ny칸에 꼬리가 있을 경우 break
+        if (nx, ny) in snake:
+            finished = True
+            break 
+        snake.append((nx, ny))
         
     if finished:
         break
+
+    move_idx += 1
             
 print(time)
