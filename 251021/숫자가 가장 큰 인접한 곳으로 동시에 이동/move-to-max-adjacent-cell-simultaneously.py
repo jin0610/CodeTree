@@ -21,7 +21,7 @@ def get_beads_new_position():
     new_position, temp = [], []
     for beads in marbles:
         r, c = beads
-        max_r, max_c, max_num = r, c, grid[r][c]
+        max_r, max_c, max_num = r, c, 0
         for dr, dc in zip(drs, dcs):
             nr, nc = r + dr, c + dc
             if in_range(nr, nc):
@@ -39,6 +39,7 @@ def get_beads_new_position():
     marbles = new_position[:]
 
 for _ in range(T):
-    get_beads_new_position()
+    if len(marbles) != 0:
+        get_beads_new_position()
 
 print(len(marbles))
