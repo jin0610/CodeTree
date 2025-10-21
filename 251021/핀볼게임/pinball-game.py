@@ -10,16 +10,8 @@ def get_time(x, y, d):
     time = 1
     while True:
         time += 1
-        # 다음 이동할 칸
-        nx, ny = x + dxs[d], y + dys[d]
-        
-        if not in_range(nx, ny):
-            break
-        
-        # 이동
-        x, y = nx, ny
-        
-        # 방향 재정리
+
+        # 방향 정리
         if grid[x][y] == 1:
             if d % 2 == 0:
                 d = (d + 3) % 4
@@ -30,8 +22,12 @@ def get_time(x, y, d):
                 d = (d + 1) % 4
             else:
                 d = (d + 3) % 4
-        else:
-            pass
+
+        nx, ny = x + dxs[d], y + dys[d] # 다음 이동할 칸
+        if not in_range(nx, ny):
+            break
+        x, y = nx, ny   # 이동
+        
 
     return time
 
