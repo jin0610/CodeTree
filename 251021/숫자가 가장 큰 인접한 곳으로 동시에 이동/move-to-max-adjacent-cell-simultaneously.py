@@ -37,7 +37,6 @@ def get_beads_new_position():
             temp.append((max_r, max_c))
     
     marbles = new_position[:]
-    return marbles
 
 for _ in range(T):
     get_beads_new_position()
