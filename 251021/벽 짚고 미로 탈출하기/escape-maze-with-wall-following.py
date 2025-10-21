@@ -1,3 +1,4 @@
+import sys
 N = int(input())
 x, y = map(int, input().split())
 
@@ -21,9 +22,8 @@ def wall_on_the_right(curr_x, curr_y, curr_d):
     if in_range(nx, ny) and grid[nx][ny] == '#':
         return True
     return False
-# is_possible = False
-time = 0
 
+time = 0
 x, y = x - 1, y - 1
 d = 1 
 visited[(x, y, d)] = 1
@@ -32,9 +32,15 @@ while True:
 
     ## Step1: 바라보고 있는 방향으로 이동이 불가능할 경우 반시계 방향 90도
     if in_range(nx, ny) and grid[nx][ny] == '#':
+        cnt = 1
         while in_range(nx,ny) and grid[nx][ny] == '#':
             d = (d + 3) % 4
             nx, ny = x + dxs[d], y + dys[d]
+            cnt += 1
+
+            if cnt == 4:
+                print(-1)
+                sys.exit(0)
     
     ## Step2: 바라보고 있는 방향으로 이동이 가능한 경우
     # Case 1: 바로 앞이 격자 밖이라면 이동하여 탈출
