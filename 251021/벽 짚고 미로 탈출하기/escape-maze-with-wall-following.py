@@ -25,7 +25,7 @@ def wall_on_the_right(curr_x, curr_y, curr_d):
 
 time = 0
 x, y = x - 1, y - 1
-d = 1 
+d = 0 
 visited[(x, y, d)] = 1
 while True:
     nx, ny = x + dxs[d], y + dys[d]
