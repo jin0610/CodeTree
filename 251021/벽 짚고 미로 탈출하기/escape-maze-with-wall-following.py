@@ -32,7 +32,7 @@ while True:
 
     ## Step1: 바라보고 있는 방향으로 이동이 불가능할 경우 반시계 방향 90도
     if in_range(nx, ny) and grid[nx][ny] == '#':
-        cnt = 1
+        cnt = 0
         while in_range(nx,ny) and grid[nx][ny] == '#':
             d = (d + 3) % 4
             nx, ny = x + dxs[d], y + dys[d]
