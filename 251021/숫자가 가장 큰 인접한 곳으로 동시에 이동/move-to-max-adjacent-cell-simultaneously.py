@@ -30,7 +30,7 @@ def get_beads_new_position():
                     max_r, max_c = nr, nc
 
         if (max_r, max_c) not in new_position:
-            if (max_r, max_c) not in check_postion:
+            if (max_r, max_c) not in check_position:
                 new_position.append((max_r, max_c))
         else:
             new_position.remove((max_r, max_c))
