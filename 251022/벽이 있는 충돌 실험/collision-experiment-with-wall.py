@@ -53,11 +53,11 @@ def move(n, m):
             break
 
         # 방향이 R이나 L이고 모든 행(x)이 다를 경우 break
-        if len(set(beads_pos_x)) == len(beads_pos_x) and 0 not in beads_dir and 2 not in beads_dir:
+        if len(set(beads_pos_x)) == n and 0 not in beads_dir and 2 not in beads_dir:
             break
 
         # 뱡향이 U이나 D이고 모든 열(y)이 다 다를 경우 break
-        if len(set(beads_pos_y)) == len(beads_pos_y) and 1 not in beads_dir and 3 not in beads_dir:
+        if len(set(beads_pos_y)) == n and 1 not in beads_dir and 3 not in beads_dir:
             break
 
         beads_pos_x, beads_pos_y, beads_dir = move_beads(beads_pos_x, beads_pos_y, beads_dir, n)
