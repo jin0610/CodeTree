@@ -19,8 +19,8 @@ def move_beads(beads):
         nx, ny = x + dxs[d_idx], y + dys[d_idx]
         if not in_range(nx, ny):
             nx, ny = x, y
-            d = directions[3 - d_idx]
-        
+            d = directions[(d_idx + 2) % 4]
+            
         # 새로운 위치 저장
         pos = [nx, ny]
         if [nx, ny] not in new_positions:
@@ -47,7 +47,7 @@ def move(n, m):
         x, y = int(x) - 1, int(y) - 1
         beads.append([x, y, d])
 
-    for _ in range(2*n):
+    for _ in range(2 * n):
         beads = move_beads(beads)
     
     print(len(beads))
