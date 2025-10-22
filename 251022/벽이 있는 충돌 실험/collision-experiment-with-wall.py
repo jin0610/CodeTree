@@ -2,36 +2,32 @@ import sys
 input = sys.stdin.readline
 
 # 위 오른 아래 왼
-directions = ["U", "R", "D", "L"]
+directions = {'U':0, 'R':1, 'D':2, 'L':3}
 dxs = [-1, 0, 1, 0]
 dys = [0, 1, 0, -1]
-
-def in_range(x, y, N):
-    return x >= 0 and x < N and y >= 0 and y < N
 
 def move_beads(beads, n):
     pos_dict = {}
     dir_dict = {}
     
     for x, y, d in beads:
-        d_idx = directions.index(d)
-        nx, ny = x + dxs[d_idx], y + dys[d_idx]
-        if not in_range(nx, ny, n):
+        nx, ny = x + dxs[d], y + dys[d]
+        if nx < 0 or nx >= n or ny < 0 or ny >= n:
             nx, ny = x, y
-            d = directions[(d_idx + 2) % 4]
+            d = (d + 2) % 4
             
         # 새로운 위치 저장
         pos = (nx, ny)
-        if pos not in pos_dict.keys():
-            pos_dict[pos] = 1
+        cnt = pos_dict.get(pos, 0) + 1
+        pos_dict[pos] = cnt
+        if cnt == 1:
             dir_dict[pos] = d
-        else:
-            pos_dict[pos] += 1
 
     new_beads = []
-    for key, value in pos_dict.items():
-        if value == 1:
-            new_beads.append([key[0], key[1], dir_dict[key]])
+    for (x, y), cnt in pos_dict.items():
+        if cnt == 1:
+            bead = [x, y, dir_dict[(x, y)]]
+            new_beads.append(bead)
     return new_beads
 
 
@@ -39,12 +35,13 @@ def move(n, m):
     beads = []
 
     for _ in range(m):
-        x, y, d = list(input().split())
+        x, y, direction = input().split()
         x, y = int(x) - 1, int(y) - 1
+        d = directions[direction]
         beads.append([x, y, d])
 
     for _ in range(2 * n):
-        if len(beads) == 0:
+        if not beads:
             break
         beads = move_beads(beads, n)
     
