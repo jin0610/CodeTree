@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 T = int(input())
 
 # 위 오른 아래 왼
@@ -8,14 +11,14 @@ dys = [0, 1, 0, -1]
 def in_range(x, y):
     return x >= 0 and x < N and y >= 0 and y < N
 
-def move_beads(beads):
+def move_beads(beads, n):
     pos_dict = {}
     dir_dict = {}
     
     for x, y, d in beads:
         d_idx = directions.index(d)
         nx, ny = x + dxs[d_idx], y + dys[d_idx]
-        if not in_range(nx, ny):
+        if not in_range(nx, ny, n):
             nx, ny = x, y
             d = directions[(d_idx + 2) % 4]
             
@@ -45,7 +48,7 @@ def move(n, m):
     for _ in range(2 * n):
         if len(beads) == 0:
             break
-        beads = move_beads(beads)
+        beads = move_beads(beads, n)
     
     print(len(beads))
     
