@@ -48,6 +48,8 @@ def move(n, m):
         beads.append([x, y, d])
 
     for _ in range(2 * n):
+        if len(beads) == 0:
+            break
         beads = move_beads(beads)
     
     print(len(beads))
