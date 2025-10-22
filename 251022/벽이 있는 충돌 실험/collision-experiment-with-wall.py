@@ -1,14 +1,12 @@
 import sys
 input = sys.stdin.readline
 
-T = int(input())
-
 # 위 오른 아래 왼
 directions = ["U", "R", "D", "L"]
 dxs = [-1, 0, 1, 0]
 dys = [0, 1, 0, -1]
 
-def in_range(x, y):
+def in_range(x, y, N):
     return x >= 0 and x < N and y >= 0 and y < N
 
 def move_beads(beads, n):
@@ -51,7 +49,8 @@ def move(n, m):
         beads = move_beads(beads, n)
     
     print(len(beads))
-    
+
+T = int(input())  
 for _ in range(T):
     N, M = map(int, input().split())
     move(N, M)
