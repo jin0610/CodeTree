@@ -1,7 +1,6 @@
 T = int(input())
 
 # 위 오른 아래 왼
-# directions = {"U" : 0, "R":1, "D":2, "L": 3}
 directions = ["U", "R", "D", "L"]
 dxs = [-1, 0, 1, 0]
 dys = [0, 1, 0, -1]
@@ -10,9 +9,8 @@ def in_range(x, y):
     return x >= 0 and x < N and y >= 0 and y < N
 
 def move_beads(beads):
-    new_positions = []
-    new_directions = []
-    pos_count = []
+    pos_dict = {}
+    dir_dict = {}
     
     for x, y, d in beads:
         d_idx = directions.index(d)
@@ -22,20 +20,17 @@ def move_beads(beads):
             d = directions[(d_idx + 2) % 4]
             
         # 새로운 위치 저장
-        pos = [nx, ny]
-        if [nx, ny] not in new_positions:
-            new_positions.append(pos)
-            new_directions.append([d])
-            pos_count.append(1)
+        pos = (nx, ny)
+        if pos not in pos_dict.keys():
+            pos_dict[pos] = 1
+            dir_dict[pos] = d
         else:
-            idx = new_positions.index(pos)
-            pos_count[idx] += 1
+            pos_dict[pos] += 1
 
     new_beads = []
-    for i in range(len(pos_count)):
-        if pos_count[i] == 1:
-            new_bead = new_positions[i] + new_directions[i]
-            new_beads.append(new_bead)
+    for key, value in pos_dict.items():
+        if value == 1:
+            new_beads.append([key[0], key[1], dir_dict[key]])
     return new_beads
 
 
