@@ -9,7 +9,7 @@ area_grid = [   # 초토화된 영역을 표시하기 위한 grid
 bomb_types = {
     1 : [(-2, 0), (-1, 0), (1, 0), (2, 0)],
     2 : [(-1, 0), (1, 0), (0, 1), (0, -1)],
-    3 : [(-1, -1), (-1, 1), (1, 1), (-1, 1)]
+    3 : [(-1, -1), (-1, 1), (1, 1), (1, -1)]
 }
 
 def in_range(r, c):
@@ -27,11 +27,11 @@ for i in range(n):
 
 
 def count_areas(bomb_combination):
-    global bomb_pos, bomb_count, area_grid
+    global bomb_types, bomb_pos, bomb_count, area_grid
 
     for i in range(bomb_count):
         r, c = bomb_pos[i]  # bomb 위치
-        bomb_type = bomb_combination[i]     # 폭탄 유형
+        bomb_type = bomb_combination[i] # 폭탄 유형
         for area_r, area_c in bomb_types[bomb_type]:    
             nr, nc = r + area_r, c + area_c
             if in_range(nr, nc):
