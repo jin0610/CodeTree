@@ -1,16 +1,18 @@
-N, K = map(int, input().split())
+K, N = map(int,input().split()) # 1 ~ K 숫자를 하나 고르는 행위를 N번 반복
+selected_nums = []  # 선택된 숫자
 
-nums =[]
-def choose(num):
-    if num == K + 1:
-        print(*nums)
+def select_num(num):
+
+    if len(selected_nums) == N:    # 종료조건 : 숫자를 N번 선택했을 때
+        print(*selected_nums)   # 선택된 원소 출력
         return
 
-    for i in range(1, N + 1):
-        nums.append(i)
-        choose(num + 1)
-        nums.pop()
+    # 1 ~ K의 숫자가 뽑혔을 때의 경우를 탐색
+    for k in range(1, K + 1):
+        selected_nums.append(k)
+        select_num(num + 1)
+        selected_nums.pop()
 
     return
 
-choose(1)
+select_num(1)
