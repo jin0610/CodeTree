@@ -2,17 +2,14 @@ N, M, K = map(int, input().split())     # 턴의 수(N), 윷놀이 판의 상태
 lengths = list(map(int, input().split()))
 
 def cal_score():
-    global numbers
-    move = {}
+    global numbers, lengths
+    move_status = [1] * K # [1. 1. 1. 1]
     for i in range(len(numbers)):
-        if move.get(numbers[i]):
-            move[numbers[i]] += (lengths[i])
-        else:
-            move[numbers[i]] = 1 + (lengths[i])
-    
+        move_status[numbers[i] - 1] += lengths[i]
+
     score = 0
-    for key, value in move.items():
-        if value >= M:
+    for status in move_status:
+        if status >= M:
             score += 1
     return score
 
@@ -21,7 +18,6 @@ result = 0
 def backtracking(depth, cnt):
     global numbers, result
     if depth == cnt:
-        # print(numbers)
         result = max(result, cal_score())
         return
 
