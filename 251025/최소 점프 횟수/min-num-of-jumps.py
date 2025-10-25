@@ -1,25 +1,25 @@
 import sys
 
-_MAX = sys.maxsize
-
-# 변수 입력
-n = int(input())
+N = int(input())
 nums = list(map(int, input().split()))
 
-answer = _MAX
-def backtracking(idx, cnt):
+INT_MAX = sys.maxsize
+answer = INT_MAX
+
+def get_min_jump(idx, cnt):
     global answer
 
-    if idx >= n - 1:
+    if idx == N - 1:
         answer = min(answer, cnt)
         return
 
     for dist in range(1, nums[idx] + 1):
-        backtracking(idx + dist, cnt + 1)
+        get_min_jump(idx + dist, cnt + 1)
 
-backtracking(0, 0)
+    return
 
-if answer == _MAX:
-    answer = -1
-
-print(answer)
+get_min_jump(0, 0)
+if answer == INT_MAX:
+    print(-1)
+else:
+    print(answer)  
