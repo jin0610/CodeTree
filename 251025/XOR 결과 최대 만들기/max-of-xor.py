@@ -10,8 +10,7 @@ def find_max_num(curr_num, cnt):
         return
 
     for i in range(N):
-        curr_num = curr_num ^ arr[i]
-        find_max_num(curr_num, cnt + 1)
+        find_max_num(curr_num ^ arr[i], cnt + 1)
     
     return
 
