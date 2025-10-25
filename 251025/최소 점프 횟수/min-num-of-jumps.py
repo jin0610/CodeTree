@@ -7,7 +7,6 @@ n = int(input())
 nums = list(map(int, input().split()))
 
 answer = _MAX
-
 def backtracking(idx, cnt):
     global answer
 
@@ -15,12 +14,12 @@ def backtracking(idx, cnt):
         answer = min(answer, cnt)
         return
 
-    for dist in range(1, num[idx] + 1):
-        backtriking(idx + dist, cnt + 1)
+    for dist in range(1, nums[idx] + 1):
+        backtracking(idx + dist, cnt + 1)
 
 backtracking(0, 0)
 
-if answer = _MAX:
+if answer == _MAX:
     answer = -1
 
 print(answer)
