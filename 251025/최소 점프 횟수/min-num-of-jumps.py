@@ -1,23 +1,26 @@
-# 입력
 import sys
-input = sys.stdin.readline
 
+_MAX = sys.maxsize
+
+# 변수 입력
 n = int(input())
-arr = list(map(int,input().split()))
+nums = list(map(int, input().split()))
 
-# 계산1: 초기화
-dp = [-1 for _ in range(n)]
-dp[0] = 0
+answer = _MAX
 
-# 계산2: dp
-for i in range(n-1):
-    for k in range(arr[i]):
+def backtracking(idx, cnt):
+    global answer
 
-        if (i + (k+1)) < n:
-            if dp[i + (k+1)] == -1:
-                dp[i + (k+1)] = dp[i] + 1
-            else:
-                dp[i + (k+1)] = min(dp[i + (k+1)], dp[i] + 1)
+    if idx >= n - 1:
+        answer = min(answer, cnt)
+        return
 
-# 출력
-print(dp[-1])
+    for dist in range(1, num[idx] + 1):
+        backtriking(idx + dist, cnt + 1)
+
+backtracking(0, 0)
+
+if answer = _MAX:
+    answer = -1
+
+print(answer)
