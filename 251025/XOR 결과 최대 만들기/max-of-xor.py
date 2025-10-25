@@ -11,7 +11,7 @@ def get_max_xor(curr_idx, cnt, curr_num):
 
     # 현재 인덱스가 N보다 크거나 같을 경우 멈추기
     # 현재 남아있는 숫자의 갯수가 부족할 경우 멈추기
-    if curr_idx >= N or N - cnt < M - cnt:
+    if curr_idx >= N or N - curr_idx < M - cnt:
         return
     
     for n in range(curr_idx, N):
