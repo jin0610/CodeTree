@@ -1,40 +1,46 @@
 import sys
-n = int(input())
-A = [list(map(int, input().split())) for _ in range(n)]
-
-visited = [False] * n
-
-def get_min_cost():
-    global point
+N = int(input())
+A = [
+    list(map(int, input().split()))
+    for _ in range(N)
+]
+visited = [False] * N
+visited[0] = True
+def calc_cost():
+    global points
 
     cost = 0
-    for i in range(n - 1):
-        cost += A[point[i]][point[i + 1]]
-    cost += A[point[-1]][0]
-
+    pre_point = 0
+    for p in points:
+        if A[pre_point][p] == 0:
+            return  sys.maxsize
+        cost += A[pre_point][p]
+        pre_point = p
+    cost += A[pre_point][0]
     return cost
 
-point = [0]
+points = []
 answer = sys.maxsize
-def traveling_saleman(curr_num):
-    global visited, point, A, answer
+def choose_point(curr_num):
+    global visited, points, answer
 
-    if curr_num == n:
-        answer = min(answer, get_min_cost())
+    if curr_num == N:
+        answer = min(answer, calc_cost())
         return
 
-    for i in range(1, n):
-        if visited[i]:
+    for n in range(1, N):
+        if visited[n]:
             continue
+        
+        points.append(n)
+        visited[n] = True
+        
+        choose_point(curr_num + 1)
 
-        visited[i] = True
-        point.append(i)
-        traveling_saleman(curr_num + 1)
-
-        point.pop()
-        visited[i] = False
+        points.pop()
+        visited[n] = False
 
     return
 
-traveling_saleman(1)
+choose_point(1)
 print(answer)
