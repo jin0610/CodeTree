@@ -12,10 +12,10 @@ def is_possible(numbers):
     return True
 
 numbers = []
-def backtracking(depth, cnt):
+def backtracking(cnt):
     global numbers
 
-    if depth == cnt:
+    if cnt == n:
         if is_possible(numbers):
             print("".join(map(str,numbers)))
             sys.exit(0)
@@ -25,8 +25,8 @@ def backtracking(depth, cnt):
         if numbers and numbers[-1] == i:
             continue
         numbers.append(i)
-        backtracking(depth, cnt + 1)
+        backtracking(cnt + 1)
         numbers.pop()
     return
 
-backtracking(n, 0)
+backtracking(0)
