@@ -9,7 +9,7 @@ answer = INT_MAX
 def get_min_jump(idx, cnt):
     global answer
 
-    if idx == N - 1:
+    if idx >= N - 1:
         answer = min(answer, cnt)
         return
 
