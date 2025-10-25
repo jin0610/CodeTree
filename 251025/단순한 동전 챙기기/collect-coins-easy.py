@@ -52,8 +52,7 @@ def get_min_move(curr_idx, cnt):
 
     # 동전이 모자란 경우 
     # 1. 격자 안에 동전의 갯수가 3개 미만인 경우 len(coins) < 3
-    # 2. 선택할 수 있는 남아있는 동전의 갯수 (len(coins) - curr_idx - 1)보다 선택해야하는 수가 더 큰 경우(3-cnt)
-    if len(coins) < 3 or len(coins) - curr_idx - 1 < 3 - cnt:
+    if len(coins) < 3:
         return
 
     for i in range(curr_idx, len(coins)):
