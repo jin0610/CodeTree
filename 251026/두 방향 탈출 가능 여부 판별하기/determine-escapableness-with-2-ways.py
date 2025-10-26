@@ -18,13 +18,10 @@ def can_go(x, y):
         else:
             return False
 
-order = 1
 def dfs(x, y):
-    global order, visited
+    global visited
 
     visited[x][y] = True
-    grid[x][y] = order
-    order += 1
 
     dxs, dys = [1, 0], [0, 1]
 
