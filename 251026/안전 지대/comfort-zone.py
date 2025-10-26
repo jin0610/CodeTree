@@ -1,9 +1,13 @@
+import sys
+sys.setrecursionlimit(10**5)
+
 n, m = map(int, input().split())
 # 마을의 높이
 town_heights = [list(map(int, input().split())) for _ in range(n)]
 
-# 높이가 K 이하이면 False, 초과하면 True
-town = [ [True for _ in range(m)] for _ in range(n)]
+max_height = 0
+for i in range(n):
+    max_height = max(max_height, max(town_heights[i]))
 
 # N x M 범위 내인지 확인하는 함수
 def in_range(x, y):
@@ -34,7 +38,7 @@ def dfs(x, y, K):
 
 K, max_K = 1, 1   # 수위, 최대 높이
 max_safe_area = 0   # 최대 안전영역 수
-while K < 100:
+while K < max_height:
     safe_area = 0   # 안전 영역 수
 
     # 방문 여부
