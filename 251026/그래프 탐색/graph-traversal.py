@@ -8,6 +8,7 @@ for _ in range(M):
     edgs[x - 1][y - 1], edgs[y - 1][x - 1] = 1, 1
 
 visited =  [False for _ in range(N)]
+visited[0] = True
 
 answer = 0
 def dfs(curr_v):
@@ -20,4 +21,4 @@ def dfs(curr_v):
             dfs(next_v)
 
 dfs(0)
-print(answer - 1)
+print(answer)
