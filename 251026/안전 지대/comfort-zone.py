@@ -33,7 +33,7 @@ def dfs(x, y, K):
             dfs(nx, ny, K)
 
 K, max_K = 1, 1   # 수위, 최대 높이
-max_safe_area = 1   # 최대 안전영역 수
+max_safe_area = 0   # 최대 안전영역 수
 while K < 100:
     safe_area = 0   # 안전 영역 수
 
@@ -43,8 +43,8 @@ while K < 100:
     for x in range(n):
         for y in range(m):
             if can_go(x, y, K):
-                safe_area += 1
                 dfs(x, y, K)
+                safe_area += 1
 
     if safe_area > max_safe_area:
         max_safe_area = safe_area
