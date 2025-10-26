@@ -36,7 +36,7 @@ def bfs():
 
 bfs()
 
-if visited[n-1][n-1]:
+if visited[n-1][m-1]:
     print(1)
 else:
     print(0)
