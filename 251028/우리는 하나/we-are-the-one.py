@@ -45,7 +45,7 @@ def select_city(start, cnt):
         answer = max(answer, bfs(cities))
         return
 
-    for s in range(start, N ** 2 - 1):
+    for s in range(start, N ** 2):
         cities.append((s // N, s % N))
         select_city(s + 1, cnt + 1)
         cities.pop()
