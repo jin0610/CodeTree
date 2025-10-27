@@ -15,6 +15,7 @@ def bfs():
     global visited
 
     q = deque([(r1 - 1, c1 - 1)])
+    visited[r1-1][c1-1] = True
     step[r1-1][c1-1] = 0
     
     while q:
