@@ -1,6 +1,6 @@
 N = int(input())
 import sys
-memo = [-1] * 45
+memo = [-1] * (N + 1)
 
 def fibbo(n):
     if memo[n] != -1:
