@@ -53,19 +53,23 @@ def bfs(x, y):
                 q.append((nx, ny))
                 visited[nx][ny] = True
                 distance[nx][ny] = min(distance[nx][ny], dist + 1)
+            
+                if grid[nx][ny] == 3:
+                    return distance[nx][ny]
+    return -1
 
 for x, y in persons:
-    bfs(x, y)
-    min_dist = n**2
-    is_visited = False
-    for lx, ly in not_rain:
-        if visited[lx][ly]:
-            min_dist = min(min_dist, distance[lx][ly])
-            is_visited = True
-    if is_visited:
-        answer[x][y] = min_dist
-    else:
-        answer[x][y] =-1
+    answer[x][y] = bfs(x, y)
+    # min_dist = n**2
+    # is_visited = False
+    # for lx, ly in not_rain:
+    #     if visited[lx][ly]:
+    #         min_dist = min(min_dist, distance[lx][ly])
+    #         is_visited = True
+    # if is_visited:
+    #     answer[x][y] = min_dist
+    # else:
+    #     answer[x][y] =-1
 
 for x in range(n):
     print(*answer[x])
