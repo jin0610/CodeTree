@@ -2,20 +2,17 @@ from collections import deque
 
 n, h, m = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
-answer = [ [0 for _ in range(n)] for _ in range(n)] # 사람이 비를 피할 수 있다면 최소 시간
+
 visited = [[False for _ in range(n)] for _ in range(n)]
 distance = [[n**2 for _ in range(n)] for _ in range(n)]
 
 # 0 : 이동 가능, 1 : 벽, 2: 사람, 3 : 비를 피할 수 있는 곳
 # 사람이 있는 곳 
 persons = []
-not_rain = []   # 비를 피할 수 있는 곳
 for x in range(n):
     for y in range(n):
         if grid[x][y] == 2:
             persons.append((x, y))
-        elif grid[x][y] == 3:
-            not_rain.append((x, y))
 
 # 범위 내에 있는 지 확인
 def in_range(x, y):
@@ -57,19 +54,10 @@ def bfs(x, y):
                 if grid[nx][ny] == 3:
                     return distance[nx][ny]
     return -1
-
+    
+answer = [ [0 for _ in range(n)] for _ in range(n)] # 사람이 비를 피할 수 있다면 최소 시간
 for x, y in persons:
     answer[x][y] = bfs(x, y)
-    # min_dist = n**2
-    # is_visited = False
-    # for lx, ly in not_rain:
-    #     if visited[lx][ly]:
-    #         min_dist = min(min_dist, distance[lx][ly])
-    #         is_visited = True
-    # if is_visited:
-    #     answer[x][y] = min_dist
-    # else:
-    #     answer[x][y] =-1
 
 for x in range(n):
     print(*answer[x])
