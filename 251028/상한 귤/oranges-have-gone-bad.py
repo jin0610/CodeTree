@@ -50,7 +50,7 @@ for x in range(n):
         if grid[x][y] == 0: # grid가 0(귤이 놓여있지 않을때)일 때 -1
             step[x][y] = -1
         else:
-            if not visited[i][j]:   # 귤이 있지만 방문하지 않았을 경우 : 귤이 썩지 않음 -2
+            if not visited[x][y]:   # 귤이 있지만 방문하지 않았을 경우 : 귤이 썩지 않음 -2
                 step[x][y] = -2
 
 # 정답 출력
