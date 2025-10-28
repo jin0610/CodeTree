@@ -1,9 +1,15 @@
 N = int(input())
+import sys
+memo = [-1] * 45
 
 def fibbo(n):
-    if n == 1 or n == 2:
-        return 1
+    if memo[n] != -1:
+        return memo[n]
     
-    return fibbo(n-2) + fibbo(n-1)
-
+    if n <= 2:
+        memo[n] = 1
+    else:
+        memo[n] = fibbo(n - 1) + fibbo(n-2)
+    
+    return memo[n]
 print(fibbo(N))
