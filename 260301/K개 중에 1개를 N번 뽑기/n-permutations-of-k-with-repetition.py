@@ -5,15 +5,15 @@ num_list = []
 def choose(curr_n):
     global N, K
 
-    if curr_n == N + 1:
+    if curr_n == N:
         print(*num_list)
         return
 
     for i in range(1, K + 1):
         num_list.append(i)
         choose(curr_n + 1)
-        num_list.remove(i)
+        num_list.pop()
 
 
-choose(1)
+choose(0)
 
