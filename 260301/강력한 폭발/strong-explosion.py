@@ -32,8 +32,9 @@ def bomb():
             temp[by][bx] = 1
             count += 1
         
+        bomb_dir = bombs_dict[bomb_type]
         for j in range(4):
-            nx, ny = bx + bombs_dict[bomb_type][j][1], by + bombs_dict[bomb_type][j][0]
+            nx, ny = bx + bomb_dir[j][1], by + bomb_dir[j][0]
             if in_range(nx, ny):
                 if temp[ny][nx] == 0:
                     count += 1
