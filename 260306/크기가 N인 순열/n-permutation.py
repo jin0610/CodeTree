@@ -6,7 +6,7 @@ comb = []
 def combs(cnt):
     global visited, comb
 
-    if cnt == n+1:
+    if cnt == n:
         print(*comb)
         return
 
@@ -20,7 +20,7 @@ def combs(cnt):
         comb.pop()
         visited[i] = False
 
-combs(1)
+combs(0)
 
 
 
