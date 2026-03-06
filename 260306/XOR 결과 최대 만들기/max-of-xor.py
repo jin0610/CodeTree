@@ -6,6 +6,10 @@ selected = []
 answer = 0
 
 def xor():
+
+    if len(A) == 1:
+        return A[0]
+        
     xor = 1
     for s in selected:
         xor ^= A[s]
