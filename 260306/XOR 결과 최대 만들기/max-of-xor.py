@@ -2,35 +2,20 @@ n, m = map(int, input().split())
 A = list(map(int, input().split()))
 
 # Please write your code here.
-selected = []
 answer = 0
 
-def xor():
-    global selected, A
+def find_max_xor(curr_idx, cnt, curr_val):
+    global answer
 
-    if len(A) == 1:
-        return A[0]
-
-    xor = 1
-    for s in selected:
-        xor ^= A[s]
-    
-    return xor
-
-def backtracking(curr_n, cnt):
-    global selected, n, m, answer
-
-    if curr_n == m +1:
-        answer = max(answer, xor())
+    if cnt == m:
+        answer = max(answer, curr_val)
         return
 
-    for i in range(n):
-        selected.append(i)
-        backtracking(curr_n + 1, cnt + 1)
-        selected.pop()
+    if curr_idx >= n or n - curr_idx < m - cnt:
+        return
 
-        backtracking(curr_n + 1, cnt)
+    find_max_xor(curr_idx + 1, cnt + 1, curr_val ^ A[curr_idx])
+    find_max_xor(curr_idx + 1, cnt, curr_val)
 
-
-backtracking(1, 0)
+find_max_xor(0, 0, 0)
 print(answer)
