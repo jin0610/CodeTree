@@ -11,8 +11,7 @@ for x, y in edges:
 
 def dfs(v):
     global graph, visited, n, m
-
-
+    visited[v] = True
     for curr_v in range(1, n + 1):
         if graph[v][curr_v] == 1 and not visited[curr_v]:
             visited[curr_v] = True
