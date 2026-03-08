@@ -1,4 +1,7 @@
-n = int(input())
+import sys
+sys.setrecursionlimit(250000)
+
+n =  int(sys.stdin.readline())
 grid = [list(map(int, input().split())) for _ in range(n)]
 
 # Please write your code here.
