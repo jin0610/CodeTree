@@ -5,7 +5,8 @@ coin = list(map(int, input().split()))
 dp = [10001 for _ in range(M + 1)]
 
 for value in coin:
-    dp[value] = 1
+    if value <= M:
+        dp[value] = 1
 
 for i in range(1, M + 1):
     for j in range(N):
