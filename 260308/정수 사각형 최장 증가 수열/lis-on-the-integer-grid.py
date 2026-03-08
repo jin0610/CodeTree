@@ -14,12 +14,12 @@ def count_dot(x, y):
     if dp[y][x] != 0:
         return dp[y][x]
 
-    cnt = 0
+    cnt = 1
     for dx, dy in zip(dxs, dys):
         nx, ny = x + dx, y + dy
         if in_range(nx, ny) and grid[ny][nx] > grid[y][x]:
-            cnt = 1 + count_dot(nx,ny)    
-    dp[y][x] = cnt + 1
+            cnt = max(cnt,1 + count_dot(nx,ny))
+    dp[y][x] = cnt
 
     return cnt
 
