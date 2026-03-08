@@ -22,7 +22,7 @@ for i in range(1, n):
         elif diff1 < diff2:
             dp[i][j] = (dot1[0],dot1[1],diff1)
         else:
-            dp[i][j] = (min(dot1[0],dot2[0]),min(dot1[1],dot2[1]), diff1)
+            dp[i][j] = (min(dot1[0],dot2[0]),max(min(dp[i-1][j][1],dp[i][j-1][1]),grid[i][j]), diff1)
 
 # for i in range(n):
 #     print(*dp[i])
