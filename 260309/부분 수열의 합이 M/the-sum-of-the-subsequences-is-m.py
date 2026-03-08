@@ -8,7 +8,6 @@ _max = 10001
 dp = [_max for _ in range(m + 1)]
 
 dp[0] =0
-print(A)
 for i in range(1, n + 1):   # 원소들
     for j in range(m, -1, -1): # 목표 수
         if j >= A[i]:
