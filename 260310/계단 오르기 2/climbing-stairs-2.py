@@ -10,7 +10,7 @@ if n > 1:
     dp[2][0] = coin[2]              # 1계단 오르는 것을 한 번 했을 경우
     dp[2][2] = coin[1] + coin[2]    # 1계단 오르는 것을 두 번 했을 경우
 
-for i in range(n + 1):
+for i in range(3, n + 1):
     for j in range(4):
         # 2계단
         if dp[i-2][j] != 0:
