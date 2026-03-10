@@ -9,13 +9,9 @@ _sum = 0
 for i in range(n):
     _sum += a[i]
     if _sum < 0:
-        _sum = a[i]
-    answer = max(answer, _sum, a[i])
-    # if _sum > answer:
-    #     _sum += a[i]
-    #     answer = max(answer, _sum)
-    # else:
-    #     if a[i] < 00:
-            
+        answer = max(answer, a[i])
+        _sum = 0
+    else:
+        answer = max(answer, _sum)
        
 print(answer)
