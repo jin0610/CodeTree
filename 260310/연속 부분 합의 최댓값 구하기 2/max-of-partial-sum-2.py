@@ -10,7 +10,7 @@ for i in range(n):
     _sum += a[i]
     if _sum < 0:
         _sum = a[i]
-    answer = max(answer, _sum)
+    answer = max(answer, _sum, a[i])
     # if _sum > answer:
     #     _sum += a[i]
     #     answer = max(answer, _sum)
