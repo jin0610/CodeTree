@@ -5,7 +5,7 @@ m = int(input())
 arr2 = list(map(int, input().split()))
 
 for i in arr2:
-    if i in arr1:
+    if i in set(arr1):
         print(1, end=" ")
     else:
         print(0, end=" ")
