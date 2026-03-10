@@ -9,7 +9,7 @@ for _ in range(n):
 
 for _ in range(m):
     p = tuple(map(int, input().split()))
-    idx = points.bisect_right(p)
+    idx = points.bisect_left(p)
     if idx == len(points):
         print("-1 -1")
     else:
