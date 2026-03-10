@@ -13,6 +13,7 @@ for x1, x2 in intervals:
 
 answer = 0
 for i in range(_max):
-    answer = max(answer, sum(check[:i + 1]))
+    answer = max(answer, sum(check[:i]))
+    
 
 print(answer)
