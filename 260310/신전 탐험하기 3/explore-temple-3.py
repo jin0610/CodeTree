@@ -5,7 +5,7 @@ a = [list(map(int, input().split())) for _ in range(n)]
 dp = [[0 for _ in range(m)] for _ in range(n)]
 
 # 초기화
-for i in range(n):
+for i in range(m):
     dp[0][i] = a[0][i]
 
 for i in range(1, n):
