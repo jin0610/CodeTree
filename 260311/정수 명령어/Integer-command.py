@@ -2,8 +2,8 @@ from sortedcontainers import SortedSet
 
 T = int(input())
 
-s = SortedSet()
 for _ in range(T):
+    s = SortedSet()
     K = int(input())
     for _ in range(K):
         w, n = input().split()
