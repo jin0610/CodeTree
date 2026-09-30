@@ -16,21 +16,17 @@ def shift(r, c, w, h, dir):
         # 시계방향() h -> w
         dxs, dys, moves = [-1, -1, 1, 1], [-1, 1, 1, -1], [h, w, h, w]
 
-    points = []
-    values = []
     curr_r, curr_c = r, c
+    prev = grid[r][c]   # 이동시킬 이전 값 저장
     for dx, dy, m in zip(dxs, dys, moves):
        for _ in range(m):
-        curr_r, curr_c = curr_r + dx, curr_c + dy
-        points.append((curr_r, curr_c))
-        values.append(grid[curr_r][curr_c])
+        next_r, next_c = curr_r + dx, curr_c + dy
 
-    temp = values.pop()
-    values.insert(0, temp)
+        temp = grid[next_r][next_c]
+        grid[next_r][next_c] = prev
+        prev = temp
 
-    for i in range(len(points)):
-        x, y = points[i]
-        grid[x][y] = values[i]
+        curr_r, curr_c = next_r, next_c
 
 shift(r, c, m1, m2, dir)
 
