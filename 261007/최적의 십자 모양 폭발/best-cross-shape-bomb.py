@@ -43,11 +43,6 @@ def bomb(grid, row, col, bomb_range):
 
     return grid
 
-def print_grid(grid):
-    for i in range(n):
-        print(*grid[i])
-    print("=========================")
-
 answer = 0
 for row in range(n):
     for col in range(n):
