@@ -16,15 +16,15 @@ def can_go(x, y):
 def bfs(x, y):
 
     q = deque([(x, y)])
-    visited[x][y] = True
-
+    
     while q:
         cx, cy = q.popleft()
+        visited[cx][cy] = True
         for dx, dy in zip(dxs, dys):
             nx, ny = cx + dx, cy + dy
             if can_go(nx, ny):
-                q.append((nx, ny))
                 visited[nx][ny] = True
+                q.append((nx, ny))
 
 bfs(0, 0)
 print(int(visited[n - 1][m - 1]))
